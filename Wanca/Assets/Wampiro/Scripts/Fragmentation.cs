@@ -11,25 +11,21 @@ public class Fragmentation : MonoBehaviour
     private Vector2 edgeUV = Vector2.zero;
     private Plane edgePlane = new Plane();
 
-    public int CutCascades = 1;
-    public float ExplodeForce = 0;
+    public int CutCascades = 10;
+    public float ExplodeForce = 20;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        DestroyMesh();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            DestroyMesh();
-        }
     }
 
-    private void DestroyMesh()
+    public void DestroyMesh()
     {
         var originalMesh = GetComponent<MeshFilter>().mesh;
         originalMesh.RecalculateBounds();

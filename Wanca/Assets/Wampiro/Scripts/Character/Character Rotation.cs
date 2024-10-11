@@ -19,7 +19,7 @@ public class CharacterRotation : MonoBehaviour
             if (joystickInput.magnitude >= 0.1f)
             {
                 // Convertir el vector de dirección a un vector 3D
-                Vector3 targetDirection = new Vector3(joystickInput.x, 0, joystickInput.y);
+                Vector3 targetDirection = new Vector3(-joystickInput.x, 0, -joystickInput.y);
 
                 // Calcular la rotación hacia la dirección del joystick
                 Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
@@ -48,7 +48,7 @@ public class CharacterRotation : MonoBehaviour
                 directionToLook.y = 0; // Evitamos rotar en el eje Y (vertical)
 
                 // Rotamos el personaje hacia la posición del mouse sin suavizar
-                transform.rotation = Quaternion.LookRotation(directionToLook);
+                transform.rotation = Quaternion.LookRotation(-directionToLook);
             }
         }
     }

@@ -6,7 +6,7 @@ public class CharacterGeneralController : MonoBehaviour
 {
     public float maxHealth=5;
 
-    protected float actualHealth;
+    public float actualHealth;
     protected CharacterAnimations animations; // Acceso protegido para usarlo en clases derivadas.
     protected MovingCharacter movement; // Acceso protegido para usarlo en clases derivadas.
 
@@ -37,6 +37,8 @@ public class CharacterGeneralController : MonoBehaviour
     public virtual void Death(){
         // Manejar la muerte del jugador.
         SetStates(false);
+
+        //gameObject.AddComponent<Fragmentation>();
     }
     public virtual void  TakeDamage(float damage){
         // Manejar el daño recibido por el jugador.

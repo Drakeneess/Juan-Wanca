@@ -29,6 +29,12 @@ public class PlayerGeneralController : CharacterGeneralController
         }
     }
 
+    private void Update() {
+        if(actualHealth<=0){
+            actualHealth=0;
+            Death();
+        }
+    }
     // Método adicional para manejar la activación de componentes específicos del jugador.
     public override void ActivateComponents(bool state)
     {
@@ -46,5 +52,13 @@ public class PlayerGeneralController : CharacterGeneralController
     public override void Death()
     {
         base.Death();
+    }
+    public void Cure(){
+        if(actualHealth<maxHealth){
+            actualHealth++;
+        }
+        else{
+            Death();
+        }
     }
 }

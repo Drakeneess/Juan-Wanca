@@ -4,19 +4,37 @@ using UnityEngine;
 
 public class TargetPointer : MonoBehaviour
 {
+    public float normalRotationSpeed = 50f;  // Velocidad de rotación normal
+    public float targetRotationSpeed = 100f; // Velocidad de rotación cuando apunta a un objetivo
+    public float scale = 1.1f;
+    public Transform trigs;
+
     private bool isTargetOnView = false;
+    private bool targetInPosition=false;
+    private Vector3 enlargedScale;  // Ajusta este valor para agrandar el puntero.
+    private Vector3 normalScale;
 
     // Start is called before the first frame update
     void Start()
     {
+        enlargedScale = new Vector3(scale, scale, scale);
+        normalScale = transform.localScale;  // Guardamos el tamaño normal al inicio.
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Si no hay objetivo visible, ajusta la rotación del puntero para que mire hacia arriba
-        if (!isTargetOnView) 
-            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        if (!isTargetOnView)
+        {
+            if(!targetInPosition){
+                transform.rotation = Quaternion.Euler(90f, 0f, 0f);
+
+                targetInPosition=true;
+            }
+            // Rotación normal cuando no está apuntando a un objetivo
+            transform.Rotate(Vector3.up,Space.World);
+            transform.localScale = normalScale;  // Restaurar el tamaño normal si no hay objetivo.
+        }
     }
 
     // Método para ajustar la posición del puntero en el suelo cuando no hay objetivo
@@ -24,23 +42,27 @@ public class TargetPointer : MonoBehaviour
     {
         // Ajustar la posición en el suelo (y=0)
         transform.position = new Vector3(newPosition.x, 0, newPosition.z);
+
         isTargetOnView = false;
     }
 
     // Método para mover el puntero cuando detecta un objetivo
-    // Método para mover el puntero cuando detecta un objetivo
     public void SetTarget(Vector3 targetPosition, Transform targetObjective)
     {
         isTargetOnView = true;
+        targetInPosition=false;
         transform.position = targetPosition;
 
         // Hacer que el puntero mire al origen (personaje)
         transform.LookAt(targetObjective);
 
-        // Aplicar una rotación de -90 grados en el eje Y para ajustar el ángulo como deseas
-        transform.Rotate(-90f, 0f, 0f);
+        // Aumentar el tamaño del puntero cuando apunta a un objetivo
+        transform.localScale = enlargedScale;
     }
-    public void TargetControl(bool state){
+
+    // Método para controlar la visibilidad del puntero
+    public void TargetControl(bool state)
+    {
         gameObject.SetActive(state);
     }
 }
