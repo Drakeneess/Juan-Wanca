@@ -1361,7 +1361,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1081932934}
-  - component: {fileID: 1081932933}
   - component: {fileID: 1081932935}
   m_Layer: 0
   m_Name: GameObject
@@ -1370,30 +1369,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1081932933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1081932932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39102875b239aff46b107d947689e5bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roomWidth: 100
-  roomLenght: 100
-  roomwidhtMin: 25
-  roomLenghtMin: 25
-  maxIterations: 15
-  corridorWidht: 5
-  meterial: {fileID: 2100000, guid: bc9438c30110243b4adeec49f13593c1, type: 2}
-  roomBottomCornerModifier: 0.1
-  roomTopCornerModifier: 0.9
-  roomOffset: 1
-  wallVertical: {fileID: 3730981999066357645, guid: 72912110ccfb7324988b6d7e6445ab88, type: 3}
-  wallHorizontal: {fileID: 7039041361444713403, guid: 4eb11d4694b482f4b8e536e5a63ac0df, type: 3}
 --- !u!4 &1081932934
 Transform:
   m_ObjectHideFlags: 0
@@ -1416,16 +1391,23 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1081932932}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2e513041952f314cb64ba565ed6b3af, type: 3}
+  m_Script: {fileID: 11500000, guid: bf0b06bbce3f56b48815efec7c199e96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallMesh: {fileID: 4300000, guid: 18e3fa685621f4b9083415a4b746c61a, type: 3}
-  wallMaterial0: {fileID: 2100000, guid: 55c763086ffd04d6485bf3ca0d3dba3b, type: 2}
-  wallMaterial1: {fileID: 2100000, guid: 55c763086ffd04d6485bf3ca0d3dba3b, type: 2}
-  roomSize: {x: 50, y: 10, z: 50}
-  wallSize: {x: 5, y: 10, z: 1}
+  dungeonWidth: 100
+  dungeonLength: 100
+  roomWidthMin: 25
+  roomLengthMin: 25
+  maxIterations: 20
+  corridorWidth: 5
+  material: {fileID: 2100000, guid: 48bee5de8ccdfc84980f9ffc4dbe44e5, type: 2}
+  roomBottomCornerModifier: 0.213
+  roomTopCornerMidifier: 0.841
+  roomOffset: 1
+  wallVertical: {fileID: 3730981999066357645, guid: 72912110ccfb7324988b6d7e6445ab88, type: 3}
+  wallHorizontal: {fileID: 7039041361444713403, guid: 4eb11d4694b482f4b8e536e5a63ac0df, type: 3}
 --- !u!1 &1107638418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1647,6 +1629,10 @@ MonoBehaviour:
   roomOffset: 0
   wallVertical: {fileID: 0}
   wallHorizontal: {fileID: 0}
+  PossibleDoorVerticalPosition: []
+  possibleDoorHorizontalPosition: []
+  possibleWallHorizontalPosition: []
+  possibleWallVerticaPosition: []
 --- !u!4 &1186928075
 Transform:
   m_ObjectHideFlags: 0
