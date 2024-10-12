@@ -102,7 +102,7 @@ public class DungeonCreator : MonoBehaviour
         mesh.vertices = vertices;
         mesh.uv = uvs;
         mesh.triangles = triangles;
-
+        
         GameObject dungeonFloor = new GameObject("Mesh" + bottomLeftCorner, typeof(MeshFilter), typeof(MeshRenderer));
 
         dungeonFloor.transform.position = Vector3.zero; 
@@ -110,6 +110,18 @@ public class DungeonCreator : MonoBehaviour
         dungeonFloor.GetComponent<MeshFilter>().mesh = mesh;
         dungeonFloor.GetComponent<MeshRenderer>().material = material;
         dungeonFloor.transform.parent = transform;
+        /*MeshCollider meshCollider = dungeonFloor.AddComponent<MeshCollider>();
+
+        // Asignar el mesh al MeshCollider
+        meshCollider.sharedMesh = mesh;
+
+        // Habilitar convex
+        meshCollider.convex = true;*/
+        BoxCollider boxCollider = dungeonFloor.AddComponent<BoxCollider>();
+
+        // Ajustar el tamaño del BoxCollider al tamaño del Mesh
+        /*boxCollider.size = new Vector3(topRightCorner.x - bottomLeftCorner.x, 1, topRightCorner.y - bottomLeftCorner.y);
+        boxCollider.center = new Vector3((bottomLeftCorner.x + topRightCorner.x) / 2, 0.5f, (bottomLeftCorner.y + topRightCorner.y) / 2);*/
 
         for (int row = (int)bottomLeftV.x; row < (int)bottomRightV.x; row++)
         {
