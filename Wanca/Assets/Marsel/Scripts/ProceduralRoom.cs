@@ -31,7 +31,7 @@ public class ProceduralRoom : MonoBehaviour
 
     public void CreateDungenon()
     {
-       // destroyAllChildren();
+       //destroyAllChildren();
         RoomGeneratr generator =new RoomGeneratr(roomWidth, roomLenght);
         var listifRooms = generator.CalculateRooms
             (maxIterations, roomwidhtMin, roomLenghtMin,roomBottomCornerModifier,roomTopCornerModifier,roomOffset,corridorWidht);
