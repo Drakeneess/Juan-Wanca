@@ -7,6 +7,7 @@ public class PlayerGeneralController : CharacterGeneralController
     
     private Pointer pointer;
     private CharacterRotation rotation;
+    private ItemController itemController;
 
     // Start is called before the first frame update
     protected override void Start()
@@ -14,6 +15,7 @@ public class PlayerGeneralController : CharacterGeneralController
         base.Start();  // Llamamos al Start de la clase base para inicializar correctamente los componentes generales.
         pointer = GetComponentInChildren<Pointer>();  // Obtener el componente Pointer en el jugador.
         rotation = GetComponent<CharacterRotation>();  // Obtener el componente de rotación del jugador.
+        itemController = GetComponent<ItemController>();  // Obtener el componente de control de items del jugador
     }
 
     // Método que sobrescribe la activación/desactivación de los estados.
@@ -27,13 +29,13 @@ public class PlayerGeneralController : CharacterGeneralController
         if(rotation != null){
             rotation.SetRotationState(state); // Activar o desactivar la rotación.
         }
+        if(itemController !=  null){
+            itemController.SetItemAwayState(state); // Activar o desactivar el controlador de
+        }
     }
 
     private void Update() {
-        if(actualHealth<=0){
-            actualHealth=0;
-            Death();
-        }
+        
     }
     // Método adicional para manejar la activación de componentes específicos del jugador.
     public override void ActivateComponents(bool state)
@@ -52,6 +54,7 @@ public class PlayerGeneralController : CharacterGeneralController
     public override void Death()
     {
         base.Death();
+        enabled=false;
     }
     public void Cure(){
         if(actualHealth<maxHealth){
@@ -60,5 +63,14 @@ public class PlayerGeneralController : CharacterGeneralController
         else{
             Death();
         }
+    }
+    protected override void OnCollisionEnter(Collision other)
+    {
+        base.OnCollisionEnter(other);
+    }
+    protected override void OnEnemyContact()
+    {
+        base.OnEnemyContact();
+        TakeDamage(1);
     }
 }

@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Limb Material
+  m_Name: Limb Material 1
   m_Shader: {fileID: -6465566751694194690, guid: 625ebfa3fb10e7846a18b23b16b9671b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -128,9 +128,9 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 0.49999988, b: 0.49999988, a: 1}
+    - _Color: {r: 0.49803925, g: 0.9604327, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Shadow_Color: {r: 1, g: 0.12893075, b: 0.12893075, a: 0}
+    - _Shadow_Color: {r: 0, g: 0.42379582, b: 0.5031446, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Target_Position: {r: 0, g: 3.73, b: 0, a: 0}
   m_BuildTextureStacks: []

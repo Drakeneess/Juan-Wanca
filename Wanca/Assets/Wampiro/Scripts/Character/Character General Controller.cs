@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,10 +6,14 @@ using UnityEngine;
 public class CharacterGeneralController : MonoBehaviour
 {
     public float maxHealth=5;
+    public ParticleSystem explosion;
+    public float damage = 1f;
+    public LayerMask characterLayer;
 
-    public float actualHealth;
+    protected float actualHealth;
     protected CharacterAnimations animations; // Acceso protegido para usarlo en clases derivadas.
     protected MovingCharacter movement; // Acceso protegido para usarlo en clases derivadas.
+    protected bool damageable=true;
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -17,6 +22,7 @@ public class CharacterGeneralController : MonoBehaviour
 
         animations = GetComponent<CharacterAnimations>();
         movement = GetComponent<MovingCharacter>();
+        explosion=GetComponentInChildren<ParticleSystem>();
     }
 
     // Método para activar o desactivar el estado del personaje.
@@ -37,15 +43,48 @@ public class CharacterGeneralController : MonoBehaviour
     public virtual void Death(){
         // Manejar la muerte del jugador.
         SetStates(false);
-
-        //gameObject.AddComponent<Fragmentation>();
+        ExplosionControl();
+        GetComponent<Fragmentation>().DestroyMesh();
     }
-    public virtual void  TakeDamage(float damage){
-        // Manejar el daño recibido por el jugador.
-        actualHealth -= damage;
-        if (actualHealth <= 0)
-        {
-            Death();
+    public virtual void TakeDamage(float damage){
+        if (damageable) {
+            // Manejar el daño recibido por el jugador.
+            actualHealth -= damage;
+            if (actualHealth <= 0)
+            {
+                Death();
+            }
         }
+    }
+    protected virtual void OnCollisionEnter(Collision other) {
+        // Manejar la colisión con un objeto.
+        if (other.gameObject.layer == characterLayer) {
+            if(other.gameObject.tag=="Player"){
+                // Manejar la colisión con el jugador.
+                OnPlayerContact();
+            }
+            else if(other.gameObject.tag=="Enemy"){
+                // Manejar la colisión con un enemigo.
+                OnEnemyContact();
+            }
+        }
+    }
+
+    protected virtual void OnPlayerContact(){
+
+    }
+
+    protected  virtual void OnEnemyContact(){
+        
+    }
+
+
+    private void ExplosionControl(){
+        Destroy(explosion,2f);
+        explosion.transform.SetParent(null);
+        explosion.Play();
+    }
+    public void SetDamageableStatus(bool state){
+        damageable = state;
     }
 }

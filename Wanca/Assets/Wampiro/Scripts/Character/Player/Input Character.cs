@@ -10,6 +10,7 @@ public class InputCharacter : MonoBehaviour
     private CharacterRotation characterRotation;
     private AttackController attackController;
     private Tackle tackle;
+    private ItemController itemController;
 
     private Vector2 directionCharacter;
     private Vector2 viewDirectionCharacter;
@@ -23,6 +24,7 @@ public class InputCharacter : MonoBehaviour
         characterRotation = GetComponent<CharacterRotation>();
         attackController = GetComponent<AttackController>();
         tackle = GetComponent<Tackle>();
+        itemController = GetComponent<ItemController>();
 
         // Subscribirse a los cambios de esquema de control
         InputSystem.onActionChange += OnInputActionChange;
@@ -35,6 +37,7 @@ public class InputCharacter : MonoBehaviour
         RotateCharacter();
         Attack();
         Tackle();
+        GrabItem();
     }
 
     void OnEnable()
@@ -78,6 +81,11 @@ public class InputCharacter : MonoBehaviour
     private void Tackle(){
         if(inputs.Game.Tackle.triggered){
             tackle.TackleAttack();
+        }
+    }
+    private void GrabItem(){
+        if(inputs.Game.Interact.triggered){
+            itemController.GrabItem();
         }
     }
 
