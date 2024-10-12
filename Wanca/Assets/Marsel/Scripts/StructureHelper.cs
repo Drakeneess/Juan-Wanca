@@ -28,8 +28,14 @@ public static class StructureHelper
             Random.Range((int)(minY + (maxY - minY) * pointModifier), maxY));
     }
 
+    public static Vector2Int CalculatemiddlePoint(Vector2Int v1, Vector2Int v2)
+    {
+        Vector2 sum= v1+v2;
+        Vector2 tempVector = sum / 2;
+        return new Vector2Int((int)tempVector.x, (int)tempVector.y);
+    }
 
-    internal static List<Node> TraverseGraphToExtractLowestLeafes(RoomNode parentNode)
+    internal static List<Node> TraverseGraphToExtractLowestLeafes(Node parentNode)
     {
         Queue<Node> nodesToCheck = new Queue<Node>();
         List<Node> listToReturn = new List<Node>();
@@ -61,4 +67,8 @@ public static class StructureHelper
         }
         return listToReturn;
     }
+}
+public enum RelativePosition
+{
+    Up, Down, Left, Right
 }

@@ -1392,6 +1392,8 @@ MonoBehaviour:
   roomBottomCornerModifier: 0.1
   roomTopCornerModifier: 0.9
   roomOffset: 1
+  wallVertical: {fileID: 3730981999066357645, guid: 72912110ccfb7324988b6d7e6445ab88, type: 3}
+  wallHorizontal: {fileID: 7039041361444713403, guid: 4eb11d4694b482f4b8e536e5a63ac0df, type: 3}
 --- !u!4 &1081932934
 Transform:
   m_ObjectHideFlags: 0
@@ -1641,8 +1643,10 @@ MonoBehaviour:
   corridorWidht: 0
   meterial: {fileID: 0}
   roomBottomCornerModifier: 0
-  roomTopCornerModifier: 0
+  roomTopCornerModifier: 0.7
   roomOffset: 0
+  wallVertical: {fileID: 0}
+  wallHorizontal: {fileID: 0}
 --- !u!4 &1186928075
 Transform:
   m_ObjectHideFlags: 0
