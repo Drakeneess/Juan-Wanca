@@ -81,4 +81,7 @@ public class CharacterAnimations : MonoBehaviour
     public void SetAnimate(bool newAnimate){
         animate = newAnimate;
     }
+    public void Punch(){
+        
+    }
 }

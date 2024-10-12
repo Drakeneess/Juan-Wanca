@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class AttackController : MonoBehaviour
 {
-    public Weapon weapon;
-    private Tackle tackle;
+    public Transform weaponHolder;
+    private Weapon weapon;
+    private CharacterAnimations characterAnimations;
+
     // Start is called before the first frame update
     void Start()
     {
-        tackle=GetComponent<Tackle>();
+        characterAnimations=GetComponent<CharacterAnimations>();
     }
 
     // Update is called once per frame
@@ -19,9 +21,13 @@ public class AttackController : MonoBehaviour
     }
     public void Attack(){
         if(weapon!=null){
+            weapon.Attack();
         }
         else{
-            tackle.TackleAttack();
+            characterAnimations.Punch();
         }
+    }
+    public void SetWeapon(Weapon newWeapon){
+        weapon = newWeapon;
     }
 }

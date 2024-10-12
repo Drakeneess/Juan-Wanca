@@ -16,6 +16,7 @@ public class PlayerGeneralController : CharacterGeneralController
         pointer = GetComponentInChildren<Pointer>();  // Obtener el componente Pointer en el jugador.
         rotation = GetComponent<CharacterRotation>();  // Obtener el componente de rotación del jugador.
         itemController = GetComponent<ItemController>();  // Obtener el componente de control de items del jugador
+        shakeMagnitude=1f;
     }
 
     // Método que sobrescribe la activación/desactivación de los estados.
@@ -35,7 +36,9 @@ public class PlayerGeneralController : CharacterGeneralController
     }
 
     private void Update() {
-        
+        if(transform.position.y<-200){
+            Death();
+        }
     }
     // Método adicional para manejar la activación de componentes específicos del jugador.
     public override void ActivateComponents(bool state)
@@ -54,6 +57,7 @@ public class PlayerGeneralController : CharacterGeneralController
     public override void Death()
     {
         base.Death();
+        cam.ShakeCamera(3f);
         enabled=false;
     }
     public void Cure(){

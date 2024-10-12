@@ -14,12 +14,15 @@ public class CharacterGeneralController : MonoBehaviour
     protected CharacterAnimations animations; // Acceso protegido para usarlo en clases derivadas.
     protected MovingCharacter movement; // Acceso protegido para usarlo en clases derivadas.
     protected bool damageable=true;
+    protected CameraController cam;
+    protected float shakeMagnitude=0.5f;
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
         actualHealth=maxHealth;
 
+        cam=Camera.main.GetComponent<CameraController>();
         animations = GetComponent<CharacterAnimations>();
         movement = GetComponent<MovingCharacter>();
         explosion=GetComponentInChildren<ParticleSystem>();
@@ -42,6 +45,7 @@ public class CharacterGeneralController : MonoBehaviour
     }
     public virtual void Death(){
         // Manejar la muerte del jugador.
+        cam.ShakeCamera(shakeMagnitude);
         SetStates(false);
         ExplosionControl();
         GetComponent<Fragmentation>().DestroyMesh();
@@ -87,4 +91,5 @@ public class CharacterGeneralController : MonoBehaviour
     public void SetDamageableStatus(bool state){
         damageable = state;
     }
+
 }
