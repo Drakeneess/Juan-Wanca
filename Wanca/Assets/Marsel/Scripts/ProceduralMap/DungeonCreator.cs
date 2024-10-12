@@ -110,6 +110,7 @@ public class DungeonCreator : MonoBehaviour
         dungeonFloor.GetComponent<MeshFilter>().mesh = mesh;
         dungeonFloor.GetComponent<MeshRenderer>().material = material;
         dungeonFloor.transform.parent = transform;
+        
         /*MeshCollider meshCollider = dungeonFloor.AddComponent<MeshCollider>();
 
         // Asignar el mesh al MeshCollider
@@ -122,7 +123,8 @@ public class DungeonCreator : MonoBehaviour
         // Ajustar el tamaño del BoxCollider al tamaño del Mesh
         /*boxCollider.size = new Vector3(topRightCorner.x - bottomLeftCorner.x, 1, topRightCorner.y - bottomLeftCorner.y);
         boxCollider.center = new Vector3((bottomLeftCorner.x + topRightCorner.x) / 2, 0.5f, (bottomLeftCorner.y + topRightCorner.y) / 2);*/
-
+        // Añadir objetos aleatorios al Mesh
+        AddRandomObjectsToMesh(dungeonFloor, bottomLeftCorner, topRightCorner);
         for (int row = (int)bottomLeftV.x; row < (int)bottomRightV.x; row++)
         {
             var wallPosition = new Vector3(row, 0, bottomLeftV.z);
@@ -144,6 +146,71 @@ public class DungeonCreator : MonoBehaviour
             AddWallPositionToList(wallPosition, possibleWallVerticalPosition, possibleDoorVerticalPosition);
         }
     }
+    private void AddRandomObjectsToMesh(GameObject meshObject, Vector2 bottomLeftCorner, Vector2 topRightCorner)
+    {
+        int numberOfObjects = 30; // Define cuántos objetos quieres generar
+        float minDistance = 3.5f; // Mínima distancia que debe haber entre objetos
+
+        for (int i = 0; i < numberOfObjects; i++)
+        {
+            int attempts = 0;
+            bool canPlace = false;
+            Vector3 randomPosition = Vector3.zero;
+
+            // Intentar encontrar una posición válida hasta un máximo de 10 intentos
+            while (!canPlace && attempts < 35)
+            {
+                // Generar una posición aleatoria dentro del área del mesh
+                float randomX = UnityEngine.Random.Range(bottomLeftCorner.x, topRightCorner.x);
+                float randomZ = UnityEngine.Random.Range(bottomLeftCorner.y, topRightCorner.y);
+                randomPosition = new Vector3(randomX, 0.75f, randomZ); // Posición sobre el plano XZ
+
+                // Verificar si hay algún objeto en la misma área XZ
+                if (IsPositionValid(randomPosition, minDistance, meshObject))
+                {
+                    canPlace = true; // La posición es válida
+                }
+
+                attempts++; // Incrementar el número de intentos
+            }
+
+            if (canPlace)
+            {
+                // Instanciar un GameObject (puedes cambiar el prefab o objeto según lo que desees añadir)
+                GameObject randomObject = GameObject.CreatePrimitive(PrimitiveType.Cube); // Ejemplo: crea un cubo
+                randomObject.transform.position = randomPosition;
+                randomObject.transform.localScale = Vector3.one * UnityEngine.Random.Range(0.5f, 1.5f); // Escala aleatoria
+                randomObject.transform.parent = meshObject.transform; // Hacer que el objeto sea hijo del mesh
+            }
+            else
+            {
+                Debug.Log("No se encontró una posición válida para el objeto " + i);
+            }
+        }
+    }
+
+    // Método para verificar si una posición es válida
+    private bool IsPositionValid(Vector3 position, float minDistance, GameObject meshObject)
+    {
+        // Obtener todos los hijos del meshObject (que pueden ser otros objetos colocados)
+        foreach (Transform child in meshObject.transform)
+        {
+            // Comparar solo las posiciones en XZ ignorando la Y
+            Vector3 childPosition = child.position;
+            float distanceXZ = Vector2.Distance(new Vector2(position.x, position.z), new Vector2(childPosition.x, childPosition.z));
+
+            // Si algún objeto está dentro de la distancia mínima, la posición no es válida
+            if (distanceXZ < minDistance)
+            {
+                return false;
+            }
+        }
+
+        // Si no hay objetos cercanos en el plano XZ, la posición es válida
+        return true;
+    }
+
+
 
     private void AddWallPositionToList(Vector3 wallPosition, List<Vector3Int> wallList, List<Vector3Int> doorList)
     {
