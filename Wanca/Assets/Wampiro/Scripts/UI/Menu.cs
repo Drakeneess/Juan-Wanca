@@ -21,6 +21,10 @@ public class Menu : MonoBehaviour
     protected InputActions inputs;
     protected Vector2 cameraDirection;
 
+    public float navigationDelay = 0.2f; // Tiempo de delay entre navegaciones
+    private float navigationCooldown = 0f; // Temporizador para controlar el delay
+    private int columns = 3;  // Número de columnas en el menú de tipo matriz
+
     protected virtual void Start()
     {
         inputs = new InputActions();
@@ -61,6 +65,31 @@ public class Menu : MonoBehaviour
 
     private void Navigate(Vector2 direction)
     {
+        // Solo navegar si el tiempo de espera ha pasado
+        if (navigationCooldown <= 0f)
+        {
+            switch (menuType)
+            {
+                case MenuType.vertical:
+                    NavigateVertical(direction);
+                    break;
+
+                case MenuType.horizontal:
+                    NavigateHorizontal(direction);
+                    break;
+
+                case MenuType.matrix:
+                    NavigateMatrix(direction);
+                    break;
+            }
+
+            // Reiniciar el temporizador de cooldown
+            navigationCooldown = navigationDelay;
+        }
+    }
+
+    private void NavigateVertical(Vector2 direction)
+    {
         if (direction.y > 0) // Arriba
         {
             currentSelection--;
@@ -68,6 +97,48 @@ public class Menu : MonoBehaviour
         else if (direction.y < 0) // Abajo
         {
             currentSelection++;
+        }
+
+        // Asegurarse de que la selección esté dentro del rango
+        currentSelection = Mathf.Clamp(currentSelection, 0, buttons.Length - 1);
+        UpdateButtonSelection();
+    }
+
+    private void NavigateHorizontal(Vector2 direction)
+    {
+        if (direction.x > 0) // Derecha
+        {
+            currentSelection++;
+        }
+        else if (direction.x < 0) // Izquierda
+        {
+            currentSelection--;
+        }
+
+        // Asegurarse de que la selección esté dentro del rango
+        currentSelection = Mathf.Clamp(currentSelection, 0, buttons.Length - 1);
+        UpdateButtonSelection();
+    }
+
+    private void NavigateMatrix(Vector2 direction)
+    {
+        int rows = Mathf.CeilToInt((float)buttons.Length / columns); // Calcular cuántas filas tiene el menú
+
+        if (direction.y > 0) // Arriba
+        {
+            currentSelection -= columns; // Moverse a la fila anterior
+        }
+        else if (direction.y < 0) // Abajo
+        {
+            currentSelection += columns; // Moverse a la fila siguiente
+        }
+        else if (direction.x > 0) // Derecha
+        {
+            currentSelection++;
+        }
+        else if (direction.x < 0) // Izquierda
+        {
+            currentSelection--;
         }
 
         // Asegurarse de que la selección esté dentro del rango
@@ -91,9 +162,15 @@ public class Menu : MonoBehaviour
         UpdateButtonSelection();
     }
 
-    void Update()
+    protected virtual void Update()
     {
-        // Puedes agregar más lógica si es necesario
+        // Reducir el cooldown del delay
+        if (navigationCooldown > 0f)
+        {
+            navigationCooldown -= Time.deltaTime;
+        }
+
+        // Controlar el movimiento de la cámara si es necesario
         CameraMovement();
     }
 
@@ -101,10 +178,14 @@ public class Menu : MonoBehaviour
     {
         inputs.Menu.Disable();
     }
-    public Vector2 GetCameraMovement(){
+
+    public Vector2 GetCameraMovement()
+    {
         return cameraDirection;
     }
-    private void CameraMovement(){
-        cameraDirection=inputs.Menu.Camera.ReadValue<Vector2>();
+
+    private void CameraMovement()
+    {
+        cameraDirection = inputs.Menu.Camera.ReadValue<Vector2>();
     }
 }
