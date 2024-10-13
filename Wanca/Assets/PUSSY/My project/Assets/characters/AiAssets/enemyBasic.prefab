@@ -236,6 +236,8 @@ GameObject:
   - component: {fileID: 1578262945629109659}
   - component: {fileID: 3945386887559516061}
   - component: {fileID: 4976873466541713315}
+  - component: {fileID: -5386693681598288189}
+  - component: {fileID: -6856992380000080837}
   m_Layer: 8
   m_Name: enemyBasic
   m_TagString: Untagged
@@ -320,6 +322,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   Animator: {fileID: 243035156126473082}
   UpdateRate: 0.1
+  Agent: {fileID: 0}
 --- !u!114 &3945386887559516061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,6 +368,38 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-5386693681598288189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749596705670834222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd58de59d195f34288537ae924bbc17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 2
+  explosion: {fileID: 0}
+  damage: 1
+  characterLayer:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &-6856992380000080837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749596705670834222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 919df8b28b1366c40bfa240ed8ef0262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CutCascades: 10
+  ExplodeForce: 20
 --- !u!1 &2157861375897634164
 GameObject:
   m_ObjectHideFlags: 0

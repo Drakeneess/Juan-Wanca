@@ -7,6 +7,7 @@ public class MeleeWeapon : MonoBehaviour
     public Vector3 initialPosition;
     public Vector3 endPosition;
 
+    public GameObject[] WeaponUI;     // Prefabs/UI para el arma
     private enum WeaponType
     {
         DoubleSaber,
@@ -17,9 +18,9 @@ public class MeleeWeapon : MonoBehaviour
     private WeaponType type;                   // Tipo de arma
     public GameObject weaponUI;
     
+    public float speed = 10f;
+    public float fireRate = 0.5f;  // Tiempo entre disparos
 
-    
-    public  float speed = 10f;
 
     // Start is called before the first frame update
     void Start()

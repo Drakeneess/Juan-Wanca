@@ -49,7 +49,13 @@ public class CharacterGeneralController : MonoBehaviour
         cam.ShakeCamera(shakeMagnitude);
         SetStates(false);
         ExplosionControl();
-        GetComponent<Fragmentation>().DestroyMesh();
+        try{
+
+            GetComponent<Fragmentation>().DestroyMesh();
+        }
+        catch{
+            
+        }
     }
     public virtual void TakeDamage(float damage){
         if (damageable) {
@@ -86,8 +92,10 @@ public class CharacterGeneralController : MonoBehaviour
 
     private void ExplosionControl(){
         Destroy(explosion,2f);
-        explosion.transform.SetParent(null);
-        explosion.Play();
+        if(explosion!=null){
+            explosion.transform.SetParent(null);
+            explosion.Play();
+        }
     }
     public void SetDamageableStatus(bool state){
         damageable = state;

@@ -35,11 +35,6 @@ namespace DoorScript
         // Update is called once per frame
         void Update()
         {
-            // Detectar la tecla 'E' para abrir/cerrar la puerta
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                OpenDoor();
-            }
 
             // Manejar la rotación de la puerta dependiendo si está abierta o cerrada
             if (open)
@@ -67,20 +62,9 @@ namespace DoorScript
             if (open && loadingScreen != null)
             {
                 StartCoroutine(ShowLoadingScreen());
-                
-                dungeonCreator.SelectRandomTheme();
-                dungeonCreator.CreateDungeon();
-                dungeonCreator.TeleportToSurface();
-                if (Hall != null)
-                {
-                    Hall.SetActive(false);
-                }
             }
-                   
-                
         }
 
-        // Corrutina para mostrar la pantalla de carga durante un tiempo determinado
         IEnumerator ShowLoadingScreen()
         {
             // Activar la pantalla de carga
@@ -89,8 +73,20 @@ namespace DoorScript
             // Simular un tiempo de carga (ejemplo: 2 segundos)
             yield return new WaitForSeconds(2);
 
+            // Aquí, realiza las tareas del dungeon
+            dungeonCreator.SelectRandomTheme();
+            dungeonCreator.CreateDungeon();
+            dungeonCreator.TeleportToSurface();
+            
             // Desactivar la pantalla de carga después de la espera
             loadingScreen.SetActive(false);
+
+            // Si es necesario, desactivar Hall aquí
+            if (Hall != null)
+            {
+                Hall.SetActive(false);
+            }
         }
+
     }
 }

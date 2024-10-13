@@ -67,7 +67,7 @@ public class DungeonCreator : MonoBehaviour
 
             // Asegurarse de que el jugador se teletransporta a la superficie
             // con una altura adecuada (puedes ajustar el valor de "y" si es necesario)
-            Player.transform.position = new Vector3(targetPosition.x+20, targetPosition.y + 5, targetPosition.z+20);
+            Player.transform.position = new Vector3(targetPosition.x+20, targetPosition.y+0.7f, targetPosition.z+20);
 
             // También podrías querer ajustar la rotación del jugador para que coincida con la de la superficie
             Player.transform.rotation = MeshInicial.transform.rotation;
@@ -243,8 +243,8 @@ public class DungeonCreator : MonoBehaviour
     private void AddRandomObjectsToMesh(List<GameObject> ListaDeObjetosPalEscenario,GameObject meshObject, Vector2 bottomLeftCorner, Vector2 topRightCorner)
     {
         int countObj= ListaDeObjetosPalEscenario.Count;
-        int numberOfObjects = 30; // Define cuántos objetos quieres generar
-        float minDistance = 3.5f; // Mínima distancia que debe haber entre objetos
+        int numberOfObjects = 7; // Define cuántos objetos quieres generar
+        float minDistance = 6; // Mínima distancia que debe haber entre objetos
 
         for (int i = 0; i < numberOfObjects; i++)
         {
@@ -258,7 +258,7 @@ public class DungeonCreator : MonoBehaviour
                 // Generar una posición aleatoria dentro del área del mesh
                 float randomX = UnityEngine.Random.Range(bottomLeftCorner.x, topRightCorner.x);
                 float randomZ = UnityEngine.Random.Range(bottomLeftCorner.y, topRightCorner.y);
-                randomPosition = new Vector3(randomX, 0.75f, randomZ); // Posición sobre el plano XZ
+                randomPosition = new Vector3(randomX, 3f, randomZ); // Posición sobre el plano XZ
 
                 // Verificar si hay algún objeto en la misma área XZ
                 if (IsPositionValid(randomPosition, minDistance, meshObject))
@@ -276,7 +276,7 @@ public class DungeonCreator : MonoBehaviour
                 GameObject objInstance = Instantiate(ListaDeObjetosPalEscenario[randomObj], randomPosition, Quaternion.identity); // Instanciar el objeto
 
                 // Cambiar la escala del objeto
-                objInstance.transform.localScale = Vector3.one * UnityEngine.Random.Range(0.5f, 1.5f); // Escala aleatoria
+                objInstance.transform.localScale = Vector3.one * UnityEngine.Random.Range(0.5f, 1f); // Escala aleatoria
 
                 // Hacer que el objeto sea hijo del mesh
                 objInstance.transform.parent = meshObject.transform; // Esto es correcto porque objInstance no es un prefab

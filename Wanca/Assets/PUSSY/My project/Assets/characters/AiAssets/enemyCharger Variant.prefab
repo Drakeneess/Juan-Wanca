@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8632344768182070713}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: pikeder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 2204715568094238126}
   - component: {fileID: 5954763713559154941}
   - component: {fileID: 7430587432225061902}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: pyramid_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2361446900135732667}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: handizq
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1511097647673660839}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: torso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2959617672495310106}
   - component: {fileID: 4169889466731762928}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Embestidor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3956974718803471027}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: handder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 8778580544115140297}
   - component: {fileID: 8711902401297514558}
   - component: {fileID: 7800719568136802161}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: cone_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +363,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6712314450107159761}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: pikeizq
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -395,7 +395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1611792240483596605}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 8340533446190633249}
   - component: {fileID: 5415265480201358399}
   - component: {fileID: 4670685167477876299}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: pyramid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -510,7 +510,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 313625205566469608}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -544,7 +544,7 @@ GameObject:
   - component: {fileID: 3255766414055180201}
   - component: {fileID: 6012677142100546401}
   - component: {fileID: 5729822317863004188}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: cuboid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -627,7 +627,7 @@ GameObject:
   - component: {fileID: 5611127151093971479}
   - component: {fileID: 2570965404805001497}
   - component: {fileID: 4255223240707867210}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: cuboid_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -710,7 +710,7 @@ GameObject:
   - component: {fileID: 36496850002284669}
   - component: {fileID: 4440228675609438623}
   - component: {fileID: 1078001237185523890}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: cone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -793,7 +793,7 @@ GameObject:
   - component: {fileID: 1445519247662563923}
   - component: {fileID: 384145199566196820}
   - component: {fileID: 8797774463054730249}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: pyramid_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -874,16 +874,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2901498632337919200, guid: d7e3561dd70c0a544a7706333587a00e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.99495
+      objectReference: {fileID: 0}
+    - target: {fileID: 2901498632337919200, guid: d7e3561dd70c0a544a7706333587a00e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.99495
+      objectReference: {fileID: 0}
+    - target: {fileID: 2901498632337919200, guid: d7e3561dd70c0a544a7706333587a00e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.99495
+      objectReference: {fileID: 0}
+    - target: {fileID: 2901498632337919200, guid: d7e3561dd70c0a544a7706333587a00e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.543812
       objectReference: {fileID: 0}
     - target: {fileID: 2901498632337919200, guid: d7e3561dd70c0a544a7706333587a00e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.6
+      value: 11.594
       objectReference: {fileID: 0}
     - target: {fileID: 2901498632337919200, guid: d7e3561dd70c0a544a7706333587a00e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.197678
+      value: 11.248
       objectReference: {fileID: 0}
     - target: {fileID: 2901498632337919200, guid: d7e3561dd70c0a544a7706333587a00e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -917,12 +929,26 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 3.61
       objectReference: {fileID: 0}
+    - target: {fileID: 7092645653650789897, guid: d7e3561dd70c0a544a7706333587a00e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7483768954780711763, guid: d7e3561dd70c0a544a7706333587a00e, type: 3}
       propertyPath: m_Name
       value: enemyCharger Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7483768954780711763, guid: d7e3561dd70c0a544a7706333587a00e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483768954780711763, guid: d7e3561dd70c0a544a7706333587a00e, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4604221925184910550, guid: d7e3561dd70c0a544a7706333587a00e, type: 3}
+    - {fileID: 8134782627243820168, guid: d7e3561dd70c0a544a7706333587a00e, type: 3}
+    - {fileID: 7975322245022721033, guid: d7e3561dd70c0a544a7706333587a00e, type: 3}
     m_RemovedGameObjects:
     - {fileID: 8576138471121787637, guid: d7e3561dd70c0a544a7706333587a00e, type: 3}
     m_AddedGameObjects:
@@ -933,6 +959,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7483768954780711763, guid: d7e3561dd70c0a544a7706333587a00e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2191921384828697277}
+    - targetCorrespondingSourceObject: {fileID: 7483768954780711763, guid: d7e3561dd70c0a544a7706333587a00e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1569486786152073806}
+    - targetCorrespondingSourceObject: {fileID: 7483768954780711763, guid: d7e3561dd70c0a544a7706333587a00e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -932441078662862927}
   m_SourcePrefab: {fileID: 100100000, guid: d7e3561dd70c0a544a7706333587a00e, type: 3}
 --- !u!4 &1838786546579497733 stripped
 Transform:
@@ -962,3 +994,35 @@ MonoBehaviour:
   chargeDamage: 50
   chargeIndicatorPrefab: {fileID: 6512018028609607049, guid: 90e40e43693063c4eb14eb37755ae2b4, type: 3}
   health: 100
+--- !u!114 &1569486786152073806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6204604639089202358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 919df8b28b1366c40bfa240ed8ef0262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CutCascades: 10
+  ExplodeForce: 20
+--- !u!114 &-932441078662862927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6204604639089202358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd58de59d195f34288537ae924bbc17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 2
+  explosion: {fileID: 0}
+  damage: 1
+  characterLayer:
+    serializedVersion: 2
+    m_Bits: 0

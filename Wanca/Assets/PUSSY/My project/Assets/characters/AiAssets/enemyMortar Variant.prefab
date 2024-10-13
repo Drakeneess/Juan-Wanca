@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1844686096571250248}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: dedodere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4014634082392785486}
   - component: {fileID: 7180271859376028683}
   - component: {fileID: 462772711251565725}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: facemortar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2098009024071707784}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Faces
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 8715600133808204238}
   - component: {fileID: 1162095744010722116}
   - component: {fileID: 892848121694353792}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: faceded
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 9197070789766541574}
   - component: {fileID: 5848899629566707047}
   - component: {fileID: 6801579665208458951}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: cuboid_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -324,7 +324,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5508348383097502129}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: hands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -357,7 +357,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6198470719017428262}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: rodillaizq
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1437423026772030380}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: rodilladere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,7 +423,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4041442272677411693}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: patasizq
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +458,7 @@ GameObject:
   - component: {fileID: 9032909688406100066}
   - component: {fileID: 3990792596835654639}
   - component: {fileID: 4010638596013825365}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: cuboid_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -539,7 +539,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2086765461927458989}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: manoizq
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -571,7 +571,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4459578017866830572}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: dedoizq
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -603,7 +603,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3618479317637843049}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -639,7 +639,7 @@ GameObject:
   - component: {fileID: 2944589640427264209}
   - component: {fileID: 2204133338923774583}
   - component: {fileID: 3448012893764989475}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: cuboid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -722,7 +722,7 @@ GameObject:
   - component: {fileID: 611677992938258196}
   - component: {fileID: 1074707881757941238}
   - component: {fileID: 4172590454343989658}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: cuboid_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -803,7 +803,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5895336296990978897}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: manodere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -837,7 +837,7 @@ GameObject:
   - component: {fileID: 6399975482060143352}
   - component: {fileID: 6359521453775487526}
   - component: {fileID: 5542541386698353008}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: cuboid_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -920,7 +920,7 @@ GameObject:
   - component: {fileID: 3294394050981539391}
   - component: {fileID: 3999107381353603806}
   - component: {fileID: 2200337867366178743}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: cuboid_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1001,7 +1001,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7702388862408905101}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: patasdere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1036,7 +1036,7 @@ GameObject:
   - component: {fileID: 7767843523656170394}
   - component: {fileID: 8090228341502527886}
   - component: {fileID: 4938724211744541605}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: cuboid_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1119,7 +1119,7 @@ GameObject:
   - component: {fileID: 7020443964095374560}
   - component: {fileID: 4426907569455995054}
   - component: {fileID: 7527867402032508457}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: cuboid_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1202,7 +1202,7 @@ GameObject:
   - component: {fileID: 5601823412660057815}
   - component: {fileID: 5818742744090452966}
   - component: {fileID: 2850451408513614747}
-  m_Layer: 9
+  m_Layer: 3
   m_Name: AttackRadious
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1273,9 +1273,11 @@ GameObject:
   - component: {fileID: 9170779063388765805}
   - component: {fileID: 4219038137746322654}
   - component: {fileID: 4604221925184910550}
-  m_Layer: 8
+  - component: {fileID: 8134782627243820168}
+  - component: {fileID: 7975322245022721033}
+  m_Layer: 3
   m_Name: enemyMortar Variant
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1289,8 +1291,8 @@ Transform:
   m_GameObject: {fileID: 7483768954780711763}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.543812, y: 11.6, z: 11.197678}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 16.543812, y: 11.276, z: 11.197678}
+  m_LocalScale: {x: 1.0716, y: 1.0716, z: 1.0716}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8957448745100165199}
@@ -1388,6 +1390,38 @@ MonoBehaviour:
   mortarFireDelay: 2
   fireRange: 20
   health: 100
+--- !u!114 &8134782627243820168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7483768954780711763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 919df8b28b1366c40bfa240ed8ef0262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CutCascades: 10
+  ExplodeForce: 20
+--- !u!114 &7975322245022721033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7483768954780711763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd58de59d195f34288537ae924bbc17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
+  explosion: {fileID: 0}
+  damage: 1
+  characterLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &8325028007808114409
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,7 +1433,7 @@ GameObject:
   - component: {fileID: 2915552650154191958}
   - component: {fileID: 1751317905201501036}
   - component: {fileID: 6979206328616251466}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: cuboid_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1481,7 +1515,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8957448745100165199}
   - component: {fileID: 8990046832472180743}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: enemyMortarm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1538,7 +1572,7 @@ GameObject:
   - component: {fileID: 3857285820631342874}
   - component: {fileID: 320143273625157381}
   - component: {fileID: 7925292400960880345}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: faceattack
   m_TagString: Untagged
   m_Icon: {fileID: 0}

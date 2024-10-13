@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : Menu
 {
@@ -26,7 +27,7 @@ public class MainMenu : Menu
     {
         Debug.Log("Iniciando el juego...");
         // Aquí agregarías la lógica para cambiar de escena, por ejemplo:
-        // SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene(1);
     }
 
     // Función para abrir el menú de personalización

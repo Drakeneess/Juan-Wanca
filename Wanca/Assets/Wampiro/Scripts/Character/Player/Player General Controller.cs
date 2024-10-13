@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class PlayerGeneralController : CharacterGeneralController
+public class PlayerGeneralController : CharacterGeneralController,IDamageable
 {
     public GameObject deathMenu;
     private Pointer pointer;
@@ -100,5 +100,21 @@ public class PlayerGeneralController : CharacterGeneralController
         GameObject menu = Instantiate(deathMenu);
         menu.transform.SetParent(canvas.transform, false);
         menu.transform.localPosition = new Vector3(0, 0, 0);
+    }
+
+    public void TakeDamage(int Damage)
+    {
+        actualHealth -= Damage;
+
+        if (actualHealth <= 0)
+        {
+            Death();
+        }
+    }
+
+    public Transform GetTransform()
+    {
+        return transform;
+
     }
 }

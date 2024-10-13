@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Wampiro/SampleScene.unity
-    guid: 1ca3a3424023d0a439705faf63e14805
+    path: Assets/Scenes 1/Menu Scene.unity
+    guid: 97a80c18e4de25040bdc25b991e3bb3b
+  - enabled: 1
+    path: Assets/Scenes 1/Game Scene Official.unity
+    guid: 675c97fd7279b664eb38c64fc32190b1
   m_configObjects: {}
