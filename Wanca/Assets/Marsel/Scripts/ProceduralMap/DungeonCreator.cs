@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class DungeonCreator : MonoBehaviour
 {
@@ -17,14 +18,50 @@ public class DungeonCreator : MonoBehaviour
     [Range(0, 2)]
     public int roomOffset;
     public GameObject wallVertical, wallHorizontal;
+    [SerializeField]
+    private List<DungeonTheme> themes = new List<DungeonTheme>();
+    [SerializeField]
+    private List<GameObject> ObjetosEscenario= new List<GameObject>();
     List<Vector3Int> possibleDoorVerticalPosition;
     List<Vector3Int> possibleDoorHorizontalPosition;
     List<Vector3Int> possibleWallHorizontalPosition;
     List<Vector3Int> possibleWallVerticalPosition;
+    private AudioSource audioSource;
+    // Mueve la inicialización de themes a aquí
+    // Permite que esta lista sea editable en el inspector
+
+
+
     // Start is called before the first frame update
+
     void Start()
     {
+        // Selecciona una temática aleatoria y aplícala
+        SelectRandomTheme();
         CreateDungeon();
+    }
+
+    // Método para seleccionar una temática aleatoria
+    public void SelectRandomTheme()
+    {
+        int randomIndex = UnityEngine.Random.Range(0, themes.Count);
+        DungeonTheme selectedTheme = themes[randomIndex];
+       // selectedTheme.themeName = "Boliviana";
+        // Asignar el material y los objetos seleccionados a los campos
+        material = selectedTheme.floorMaterial;
+        wallVertical = selectedTheme.wallVerticalPrefab;
+        wallHorizontal = selectedTheme.wallHorizontalPrefab;
+        audioSource =GetComponent<AudioSource>();
+        if (audioSource != null && selectedTheme.audioSource!=null)
+        {
+            // Asignar el AudioClip al AudioSource
+            audioSource.clip = selectedTheme.audioSource;
+
+            // Reproducir el sonido automáticamente
+            audioSource.Play();
+        }
+
+        Debug.Log("Tema seleccionado: " + selectedTheme.themeName);
     }
 
     public void CreateDungeon()
@@ -124,7 +161,7 @@ public class DungeonCreator : MonoBehaviour
         /*boxCollider.size = new Vector3(topRightCorner.x - bottomLeftCorner.x, 1, topRightCorner.y - bottomLeftCorner.y);
         boxCollider.center = new Vector3((bottomLeftCorner.x + topRightCorner.x) / 2, 0.5f, (bottomLeftCorner.y + topRightCorner.y) / 2);*/
         // Añadir objetos aleatorios al Mesh
-        AddRandomObjectsToMesh(dungeonFloor, bottomLeftCorner, topRightCorner);
+        AddRandomObjectsToMesh(ObjetosEscenario,dungeonFloor, bottomLeftCorner, topRightCorner);
         for (int row = (int)bottomLeftV.x; row < (int)bottomRightV.x; row++)
         {
             var wallPosition = new Vector3(row, 0, bottomLeftV.z);
@@ -146,8 +183,9 @@ public class DungeonCreator : MonoBehaviour
             AddWallPositionToList(wallPosition, possibleWallVerticalPosition, possibleDoorVerticalPosition);
         }
     }
-    private void AddRandomObjectsToMesh(GameObject meshObject, Vector2 bottomLeftCorner, Vector2 topRightCorner)
+    private void AddRandomObjectsToMesh(List<GameObject> ListaDeObjetosPalEscenario,GameObject meshObject, Vector2 bottomLeftCorner, Vector2 topRightCorner)
     {
+        int countObj= ListaDeObjetosPalEscenario.Count;
         int numberOfObjects = 30; // Define cuántos objetos quieres generar
         float minDistance = 3.5f; // Mínima distancia que debe haber entre objetos
 
@@ -174,13 +212,17 @@ public class DungeonCreator : MonoBehaviour
                 attempts++; // Incrementar el número de intentos
             }
 
-            if (canPlace)
-            {
-                // Instanciar un GameObject (puedes cambiar el prefab o objeto según lo que desees añadir)
-                GameObject randomObject = GameObject.CreatePrimitive(PrimitiveType.Cube); // Ejemplo: crea un cubo
-                randomObject.transform.position = randomPosition;
-                randomObject.transform.localScale = Vector3.one * UnityEngine.Random.Range(0.5f, 1.5f); // Escala aleatoria
-                randomObject.transform.parent = meshObject.transform; // Hacer que el objeto sea hijo del mesh
+            if(canPlace)
+{
+                // Instanciar un objeto aleatorio desde la lista
+                int randomObj = UnityEngine.Random.Range(0, countObj);
+                GameObject objInstance = Instantiate(ListaDeObjetosPalEscenario[randomObj], randomPosition, Quaternion.identity); // Instanciar el objeto
+
+                // Cambiar la escala del objeto
+                objInstance.transform.localScale = Vector3.one * UnityEngine.Random.Range(0.5f, 1.5f); // Escala aleatoria
+
+                // Hacer que el objeto sea hijo del mesh
+                objInstance.transform.parent = meshObject.transform; // Esto es correcto porque objInstance no es un prefab
             }
             else
             {
