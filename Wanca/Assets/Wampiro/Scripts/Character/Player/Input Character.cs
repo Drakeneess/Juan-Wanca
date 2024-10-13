@@ -38,6 +38,7 @@ public class InputCharacter : MonoBehaviour
         Attack();
         Tackle();
         GrabItem();
+        DropWeapon();
     }
 
     void OnEnable()
@@ -86,6 +87,12 @@ public class InputCharacter : MonoBehaviour
     private void GrabItem(){
         if(inputs.Game.Interact.triggered){
             itemController.GrabItem();
+        }
+    }
+
+    private void DropWeapon(){
+        if(inputs.Game.Drop.triggered){
+            attackController.DropWeapon();
         }
     }
 
