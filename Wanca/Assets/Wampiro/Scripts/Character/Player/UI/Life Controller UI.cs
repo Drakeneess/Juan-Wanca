@@ -38,6 +38,9 @@ public class LifeControllerUI : MonoBehaviour
     {
         currentLife = Mathf.FloorToInt(character.GetHealth());
         UpdateLifeImages();
+        if(currentLife<=0){
+            Destroy(gameObject);
+        }
     }
 
     // Método para actualizar las imágenes de vida.

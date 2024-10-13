@@ -45,6 +45,7 @@ public class CharacterGeneralController : MonoBehaviour
     }
     public virtual void Death(){
         // Manejar la muerte del jugador.
+        actualHealth=0;
         cam.ShakeCamera(shakeMagnitude);
         SetStates(false);
         ExplosionControl();

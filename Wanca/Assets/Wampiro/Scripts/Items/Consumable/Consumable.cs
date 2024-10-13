@@ -53,6 +53,7 @@ public class Consumable : Item
         {
             Debug.LogWarning("PlayerGeneralController no encontrado en el jugador.");
         }
-        Destroy(gameObject);
+
+        Destroy(gameObject,0.1f);
     }
 }
