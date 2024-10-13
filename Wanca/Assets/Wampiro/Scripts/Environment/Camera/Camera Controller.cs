@@ -9,6 +9,7 @@ public class CameraController : MonoBehaviour
     public float shakeDuration = 0.5f;  // Duración del temblor
 
     private Transform player;  // Referencia al transform del jugador
+    private PlayerGeneralController playerController;
     private Coroutine shakeCoroutine;  // Almacena la coroutine del temblor
 
     // Start is called before the first frame update
@@ -17,7 +18,8 @@ public class CameraController : MonoBehaviour
         // Encuentra al jugador si no está asignado manualmente
         if (player == null)
         {
-            player = FindObjectOfType<PlayerGeneralController>().transform;
+            playerController = FindObjectOfType<PlayerGeneralController>();
+            player = playerController.transform;
         }
 
         // Calcula el offset inicial entre la cámara y el jugador
@@ -29,6 +31,11 @@ public class CameraController : MonoBehaviour
     {
         if(player != null){
             FollowPlayer();
+        }
+    }
+    private void Update() {
+        if(playerController.GetHealth()<=0){
+            DestroyChild();
         }
     }
 
@@ -71,5 +78,11 @@ public class CameraController : MonoBehaviour
         }
 
         transform.position = originalPosition; // Restaura la posición original al finalizar el temblor
+    }
+
+    private void DestroyChild(){
+        foreach (Transform child in transform) {
+            Destroy(child.gameObject);
+        }
     }
 }

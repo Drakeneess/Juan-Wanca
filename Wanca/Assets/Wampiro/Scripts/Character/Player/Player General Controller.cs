@@ -1,24 +1,25 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerGeneralController : CharacterGeneralController
 {
-    
+    public GameObject deathMenu;
     private Pointer pointer;
     private CharacterRotation rotation;
     private ItemController itemController;
     private AttackController attackController;
+    
+    public float invulnerabilityDuration = 2f; // Duración de la ventana de invulnerabilidad.
+    private bool isInvulnerable = false; // Variable para verificar si el jugador es invulnerable.
 
-    // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();  // Llamamos al Start de la clase base para inicializar correctamente los componentes generales.
         pointer = GetComponentInChildren<Pointer>();  // Obtener el componente Pointer en el jugador.
         rotation = GetComponent<CharacterRotation>();  // Obtener el componente de rotación del jugador.
-        itemController = GetComponent<ItemController>();  // Obtener el componente de control de items del jugador
-        attackController=GetComponent<AttackController>();
-        shakeMagnitude=1f;
+        itemController = GetComponent<ItemController>();  // Obtener el componente de control de items del jugador.
+        attackController = GetComponent<AttackController>();
+        shakeMagnitude = 1f;
     }
 
     // Método que sobrescribe la activación/desactivación de los estados.
@@ -40,46 +41,64 @@ public class PlayerGeneralController : CharacterGeneralController
         }
     }
 
-    private void Update() {
-        if(transform.position.y<-200){
-            Death();
-        }
-    }
-    // Método adicional para manejar la activación de componentes específicos del jugador.
-    public override void ActivateComponents(bool state)
+    public override void TakeDamage(float damage)
     {
-        base.ActivateComponents(state); // Llamada opcional si tienes lógica en el padre.
-        if (pointer != null)
+        if (!isInvulnerable)  // Solo recibir daño si no está en estado de invulnerabilidad.
         {
-            pointer.SetPointerActive(state); // Activa o desactiva el puntero.
+            base.TakeDamage(damage);
+            StartCoroutine(InvulnerabilityWindow());  // Iniciar la ventana de invulnerabilidad.
         }
     }
 
-    public void Respawn(){
-        // Aquí puedes implementar la lógica para que el jugador se resucite.
-        SetStates(true);
+    private IEnumerator InvulnerabilityWindow()
+    {
+        isInvulnerable = true;  // Hacer al jugador invulnerable.
+        SetDamageableStatus(false);  // Desactivar la capacidad de recibir daño.
+
+        yield return new WaitForSeconds(invulnerabilityDuration);  // Esperar el tiempo de invulnerabilidad.
+
+        isInvulnerable = false;  // Finaliza la invulnerabilidad.
+        SetDamageableStatus(true);  // Reactivar la capacidad de recibir daño.
+    }
+
+    protected override void OnEnemyContact()
+    {
+        base.OnEnemyContact();
+        TakeDamage(1);
+    }
+
+    private void Update()
+    {
+        if (transform.position.y < -200)
+        {
+            Death();
+        }
+    }
+
+    public void Cure()
+    {
+        if (actualHealth < maxHealth)
+        {
+            actualHealth++;
+        }
+        else
+        {
+            Death();
+        }
     }
     public override void Death()
     {
         base.Death();
         cam.ShakeCamera(3f);
         enabled=false;
+        DeathScreen();
     }
-    public void Cure(){
-        if(actualHealth<maxHealth){
-            actualHealth++;
-        }
-        else{
-            Death();
-        }
-    }
-    protected override void OnCollisionEnter(Collision other)
-    {
-        base.OnCollisionEnter(other);
-    }
-    protected override void OnEnemyContact()
-    {
-        base.OnEnemyContact();
-        TakeDamage(1);
+
+    private void DeathScreen(){
+        // Aquí puedes agregar la lógica para mostrar la pantalla de muerte.
+        GameObject canvas=GameObject.FindWithTag("Main Canvas");
+        GameObject menu = Instantiate(deathMenu);
+        menu.transform.SetParent(canvas.transform, false);
+        menu.transform.localPosition = new Vector3(0, 0, 0);
     }
 }
