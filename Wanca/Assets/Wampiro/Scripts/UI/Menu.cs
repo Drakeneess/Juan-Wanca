@@ -19,6 +19,7 @@ public class Menu : MonoBehaviour
     protected Button[] buttons;
     protected int currentSelection = 0; // Índice del botón seleccionado
     protected InputActions inputs;
+    protected Vector2 cameraDirection;
 
     protected virtual void Start()
     {
@@ -93,10 +94,17 @@ public class Menu : MonoBehaviour
     void Update()
     {
         // Puedes agregar más lógica si es necesario
+        CameraMovement();
     }
 
     private void OnDisable()
     {
         inputs.Menu.Disable();
+    }
+    public Vector2 GetCameraMovement(){
+        return cameraDirection;
+    }
+    private void CameraMovement(){
+        cameraDirection=inputs.Menu.Camera.ReadValue<Vector2>();
     }
 }
