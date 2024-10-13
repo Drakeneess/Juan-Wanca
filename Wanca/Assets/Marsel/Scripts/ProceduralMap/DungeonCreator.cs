@@ -27,13 +27,44 @@ public class DungeonCreator : MonoBehaviour
     List<Vector3Int> possibleWallHorizontalPosition;
     List<Vector3Int> possibleWallVerticalPosition;
     private AudioSource audioSource;
-    // Mueve la inicialización de themes a aquí
-    // Permite que esta lista sea editable en el inspector
+    private List<GameObject> dungeonMeshes = new List<GameObject>();
+    public GameObject Player;
+    public GameObject GetFirstMesh()
+    {
+        if (dungeonMeshes.Count > 0)
+        {
+            return dungeonMeshes[0]; // Devuelve el primer mesh
+        }
+        return null; // Si no hay meshes, devuelve null
+    }
 
+    public GameObject GetLastMesh()
+    {
+        if (dungeonMeshes.Count > 0)
+        {
+            return dungeonMeshes[dungeonMeshes.Count - 1]; // Devuelve el último mesh
+        }
+        return null; // Si no hay meshes, devuelve null
+    }
 
+    public void TeleportToSurface()
+    {
+        GameObject MeshInicial = GetFirstMesh();
+        if (Player != null && MeshInicial != null)
+        {
+            // Obtener la posición de la superficie
+            Vector3 targetPosition = MeshInicial.transform.position;
 
-    // Start is called before the first frame update
+            // Asegurarse de que el jugador se teletransporta a la superficie
+            // con una altura adecuada (puedes ajustar el valor de "y" si es necesario)
+            Player.transform.position = new Vector3(targetPosition.x, targetPosition.y + 1, targetPosition.z);
 
+            // También podrías querer ajustar la rotación del jugador para que coincida con la de la superficie
+            Player.transform.rotation = MeshInicial.transform.rotation;
+
+            Debug.Log("Jugador teletransportado a la superficie: " + MeshInicial.name);
+        }
+    }
     void Start()
     {
         // Selecciona una temática aleatoria y aplícala
@@ -147,7 +178,7 @@ public class DungeonCreator : MonoBehaviour
         dungeonFloor.GetComponent<MeshFilter>().mesh = mesh;
         dungeonFloor.GetComponent<MeshRenderer>().material = material;
         dungeonFloor.transform.parent = transform;
-        
+        dungeonMeshes.Add(dungeonFloor);
         /*MeshCollider meshCollider = dungeonFloor.AddComponent<MeshCollider>();
 
         // Asignar el mesh al MeshCollider
