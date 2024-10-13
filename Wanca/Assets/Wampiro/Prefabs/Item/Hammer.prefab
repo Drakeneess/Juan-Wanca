@@ -208,6 +208,10 @@ MonoBehaviour:
   projectiles:
   - {fileID: -8693861737298831785, guid: a74a3c3b2d117ff419a676743536240c, type: 3}
   - {fileID: 8432845820850770822, guid: 97a7198f1d865b949a5398c9e99633bc, type: 3}
+  WeaponUI:
+  - {fileID: 8849429722435456387, guid: 8ad9846160595784b8680af9430a1392, type: 3}
+  - {fileID: 387779341166744846, guid: 03de6aba202e56944ba5bbd225ae481b, type: 3}
+  weaponUI: {fileID: 0}
 --- !u!114 &4652174012925340141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -687,3 +691,4 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: ff8074565a7adb14c909e0803a1e1aa0, type: 3}
   - {fileID: 21300000, guid: bf626432c2d934c4c90d13ff82587d15, type: 3}
+  interactDistance: 5

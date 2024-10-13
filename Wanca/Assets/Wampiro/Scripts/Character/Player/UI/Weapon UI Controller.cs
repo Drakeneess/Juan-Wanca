@@ -9,11 +9,6 @@ public class WeaponUIController : MonoBehaviour
     // Método para establecer el nuevo UI del arma
     public void SetWeaponUI(GameObject newWeaponUI)
     {
-        if (weaponUI != null)
-        {
-            Destroy(weaponUI); // Destruye la UI anterior si ya existe
-        }
-
         // Instancia la nueva UI y mantiene su rotación original
         weaponUI = Instantiate(newWeaponUI, transform.position, newWeaponUI.transform.rotation); 
 
@@ -22,5 +17,11 @@ public class WeaponUIController : MonoBehaviour
 
         // Mantener la rotación original
         weaponUI.transform.localRotation = newWeaponUI.transform.localRotation;
+    }
+
+    public void UnsetWeaponUI(){
+        if (weaponUI != null) {
+            Destroy(weaponUI);
+        }
     }
 }

@@ -82,7 +82,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Parry"",
+                    ""name"": ""Drop"",
                     ""type"": ""Button"",
                     ""id"": ""6a3d7aa5-a942-49ad-9297-00f0b111fe1c"",
                     ""expectedControlType"": ""Button"",
@@ -341,7 +341,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Parry"",
+                    ""action"": ""Drop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -352,7 +352,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Parry"",
+                    ""action"": ""Drop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -386,7 +386,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Game_Tackle = m_Game.FindAction("Tackle", throwIfNotFound: true);
         m_Game_Attack = m_Game.FindAction("Attack", throwIfNotFound: true);
         m_Game_Interact = m_Game.FindAction("Interact", throwIfNotFound: true);
-        m_Game_Parry = m_Game.FindAction("Parry", throwIfNotFound: true);
+        m_Game_Drop = m_Game.FindAction("Drop", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -454,7 +454,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Game_Tackle;
     private readonly InputAction m_Game_Attack;
     private readonly InputAction m_Game_Interact;
-    private readonly InputAction m_Game_Parry;
+    private readonly InputAction m_Game_Drop;
     public struct GameActions
     {
         private @InputActions m_Wrapper;
@@ -465,7 +465,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @Tackle => m_Wrapper.m_Game_Tackle;
         public InputAction @Attack => m_Wrapper.m_Game_Attack;
         public InputAction @Interact => m_Wrapper.m_Game_Interact;
-        public InputAction @Parry => m_Wrapper.m_Game_Parry;
+        public InputAction @Drop => m_Wrapper.m_Game_Drop;
         public InputActionMap Get() { return m_Wrapper.m_Game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -493,9 +493,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
-            @Parry.started += instance.OnParry;
-            @Parry.performed += instance.OnParry;
-            @Parry.canceled += instance.OnParry;
+            @Drop.started += instance.OnDrop;
+            @Drop.performed += instance.OnDrop;
+            @Drop.canceled += instance.OnDrop;
         }
 
         private void UnregisterCallbacks(IGameActions instance)
@@ -518,9 +518,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
-            @Parry.started -= instance.OnParry;
-            @Parry.performed -= instance.OnParry;
-            @Parry.canceled -= instance.OnParry;
+            @Drop.started -= instance.OnDrop;
+            @Drop.performed -= instance.OnDrop;
+            @Drop.canceled -= instance.OnDrop;
         }
 
         public void RemoveCallbacks(IGameActions instance)
@@ -564,6 +564,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnTackle(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
-        void OnParry(InputAction.CallbackContext context);
+        void OnDrop(InputAction.CallbackContext context);
     }
 }

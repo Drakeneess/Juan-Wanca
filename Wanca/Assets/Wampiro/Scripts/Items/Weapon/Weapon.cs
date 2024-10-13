@@ -20,6 +20,10 @@ public class Weapon : Item
         base.Action(player);
         AttackController attackController = player.GetComponent<AttackController>();
         if(attackController != null){
+            if(attackController.ActualWeapon() !=  this){
+                attackController.DropWeapon();
+            }
+
             Transform weaponHolder = attackController.weaponHolder;
             transform.SetParent(weaponHolder);
             transform.position = weaponHolder.position;
