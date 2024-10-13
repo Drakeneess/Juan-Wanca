@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Rendering;
 
 public class DungeonCreator : MonoBehaviour
 {
+    private NavMeshSurface navMeshSurface;
     public int dungeonWidth, dungeonLength;
     public int roomWidthMin, roomLengthMin;
     public int maxIterations;
@@ -37,7 +40,14 @@ public class DungeonCreator : MonoBehaviour
         }
         return null; // Si no hay meshes, devuelve null
     }
-
+    public void BakeNavMesh()
+    {
+        if (navMeshSurface != null)
+        {
+            navMeshSurface.BuildNavMesh();
+            Console.Write("NavMesh baked for Enemy agent.");
+        }
+    }
     public GameObject GetLastMesh()
     {
         if (dungeonMeshes.Count > 0)
@@ -97,6 +107,7 @@ public class DungeonCreator : MonoBehaviour
 
     public void CreateDungeon()
     {
+
         DestroyAllChildren();
         DugeonGenerator generator = new DugeonGenerator(dungeonWidth, dungeonLength);
         var listOfRooms = generator.CalculateDungeon(maxIterations,
@@ -117,6 +128,7 @@ public class DungeonCreator : MonoBehaviour
             CreateMesh(listOfRooms[i].BottomLeftAreaCorner, listOfRooms[i].TopRightAreaCorner);
         }
         CreateWalls(wallParent);
+        BakeNavMesh();
     }
 
     private void CreateWalls(GameObject wallParent)
@@ -193,6 +205,20 @@ public class DungeonCreator : MonoBehaviour
         boxCollider.center = new Vector3((bottomLeftCorner.x + topRightCorner.x) / 2, 0.5f, (bottomLeftCorner.y + topRightCorner.y) / 2);*/
         // Añadir objetos aleatorios al Mesh
         AddRandomObjectsToMesh(ObjetosEscenario,dungeonFloor, bottomLeftCorner, topRightCorner);
+        NavMeshSurface surface = dungeonFloor.AddComponent<NavMeshSurface>();
+
+        // Configurar el tipo de agente 'Enemy' (asegúrate de que el tipo de agente esté definido en el proyecto)
+        int enemyAgentTypeID = NavMesh.GetSettingsByIndex(1).agentTypeID; // El índice 1 es un ejemplo. Ajusta al tipo de agente 'Enemy'
+        surface.agentTypeID = enemyAgentTypeID;
+
+        // Configurar el NavMeshSurface (ajusta según tu caso)
+        surface.collectObjects = CollectObjects.All;
+
+        // Hacer el bake del NavMesh solo después de crear todos los pisos
+        if (navMeshSurface == null)
+        {
+            navMeshSurface = surface; // Guardar referencia para hacer el bake más tarde
+        }
         for (int row = (int)bottomLeftV.x; row < (int)bottomRightV.x; row++)
         {
             var wallPosition = new Vector3(row, 0, bottomLeftV.z);
