@@ -57,7 +57,7 @@ public class DungeonCreator : MonoBehaviour
 
             // Asegurarse de que el jugador se teletransporta a la superficie
             // con una altura adecuada (puedes ajustar el valor de "y" si es necesario)
-            Player.transform.position = new Vector3(targetPosition.x, targetPosition.y + 1, targetPosition.z);
+            Player.transform.position = new Vector3(targetPosition.x+20, targetPosition.y + 5, targetPosition.z+20);
 
             // También podrías querer ajustar la rotación del jugador para que coincida con la de la superficie
             Player.transform.rotation = MeshInicial.transform.rotation;
@@ -68,8 +68,8 @@ public class DungeonCreator : MonoBehaviour
     void Start()
     {
         // Selecciona una temática aleatoria y aplícala
-        SelectRandomTheme();
-        CreateDungeon();
+        //SelectRandomTheme();
+        //CreateDungeon();
     }
 
     // Método para seleccionar una temática aleatoria

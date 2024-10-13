@@ -15,6 +15,7 @@ namespace DoorScript
         public AudioSource asource;
         public AudioClip openDoor, closeDoor;
         public DungeonCreator dungeonCreator;
+        public GameObject Hall;
 
         // Para la pantalla de carga
         public GameObject loadingScreen; // Referencia a la pantalla de carga en la UI
@@ -70,6 +71,10 @@ namespace DoorScript
                 dungeonCreator.SelectRandomTheme();
                 dungeonCreator.CreateDungeon();
                 dungeonCreator.TeleportToSurface();
+                if (Hall != null)
+                {
+                    Hall.SetActive(false);
+                }
             }
                    
                 
