@@ -6,6 +6,18 @@ public class MeleeWeapon : MonoBehaviour
 {
     public Vector3 initialPosition;
     public Vector3 endPosition;
+
+    private enum WeaponType
+    {
+        DoubleSaber,
+        Sword,
+        Hammer,
+        Knife
+    }
+    private WeaponType type;                   // Tipo de arma
+    public GameObject weaponUI;
+    
+
     
     public  float speed = 10f;
 
