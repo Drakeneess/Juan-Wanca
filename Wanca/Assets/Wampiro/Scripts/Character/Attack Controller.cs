@@ -8,6 +8,7 @@ public class AttackController : MonoBehaviour
     private Weapon weapon;
     private Punch punch;
     private WeaponUIController weaponUIController;
+    private bool canAttacking = true;
 
     // Start is called before the first frame update
     void Start()
@@ -22,11 +23,13 @@ public class AttackController : MonoBehaviour
         
     }
     public void Attack(){
-        if(weapon!=null){
-            weapon.Attack();
-        }
-        else{
-            punch.PunchAttack();
+        if (canAttacking) {
+            if(weapon!=null){
+                weapon.Attack();
+            }
+            else{
+                punch.PunchAttack();
+            }
         }
     }
     public void SetWeapon(Weapon newWeapon){
@@ -47,5 +50,8 @@ public class AttackController : MonoBehaviour
 
             weapon = null; // Eliminar la referencia al arma actual en el AttackController
         }
+    }
+    public void SetCanAttacking(bool canAttacking){
+        this.canAttacking = canAttacking;
     }
 }

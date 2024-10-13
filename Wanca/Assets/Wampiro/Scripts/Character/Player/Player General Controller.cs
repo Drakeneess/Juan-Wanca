@@ -8,6 +8,7 @@ public class PlayerGeneralController : CharacterGeneralController
     private Pointer pointer;
     private CharacterRotation rotation;
     private ItemController itemController;
+    private AttackController attackController;
 
     // Start is called before the first frame update
     protected override void Start()
@@ -16,6 +17,7 @@ public class PlayerGeneralController : CharacterGeneralController
         pointer = GetComponentInChildren<Pointer>();  // Obtener el componente Pointer en el jugador.
         rotation = GetComponent<CharacterRotation>();  // Obtener el componente de rotación del jugador.
         itemController = GetComponent<ItemController>();  // Obtener el componente de control de items del jugador
+        attackController=GetComponent<AttackController>();
         shakeMagnitude=1f;
     }
 
@@ -32,6 +34,9 @@ public class PlayerGeneralController : CharacterGeneralController
         }
         if(itemController !=  null){
             itemController.SetItemAwayState(state); // Activar o desactivar el controlador de
+        }
+        if(attackController != null){
+            attackController.SetCanAttacking(state); // Activar o desactivar el controlador de at
         }
     }
 

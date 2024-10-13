@@ -13,7 +13,7 @@ public class ItemContainer : MonoBehaviour
     private string inputCharacter;
     private InputCharacter input;
     private GameObject player;
-    private float rotationSpeed = 1f;
+    public float rotationSpeed = 1f;
 
     // Start is called before the first frame update
     void Start()
