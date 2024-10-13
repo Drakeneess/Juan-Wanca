@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class DungeonCreator : MonoBehaviour
 {
@@ -17,14 +18,81 @@ public class DungeonCreator : MonoBehaviour
     [Range(0, 2)]
     public int roomOffset;
     public GameObject wallVertical, wallHorizontal;
+    [SerializeField]
+    private List<DungeonTheme> themes = new List<DungeonTheme>();
+    [SerializeField]
+    private List<GameObject> ObjetosEscenario= new List<GameObject>();
     List<Vector3Int> possibleDoorVerticalPosition;
     List<Vector3Int> possibleDoorHorizontalPosition;
     List<Vector3Int> possibleWallHorizontalPosition;
     List<Vector3Int> possibleWallVerticalPosition;
-    // Start is called before the first frame update
+    private AudioSource audioSource;
+    private List<GameObject> dungeonMeshes = new List<GameObject>();
+    public GameObject Player;
+    public GameObject GetFirstMesh()
+    {
+        if (dungeonMeshes.Count > 0)
+        {
+            return dungeonMeshes[0]; // Devuelve el primer mesh
+        }
+        return null; // Si no hay meshes, devuelve null
+    }
+
+    public GameObject GetLastMesh()
+    {
+        if (dungeonMeshes.Count > 0)
+        {
+            return dungeonMeshes[dungeonMeshes.Count - 1]; // Devuelve el último mesh
+        }
+        return null; // Si no hay meshes, devuelve null
+    }
+
+    public void TeleportToSurface()
+    {
+        GameObject MeshInicial = GetFirstMesh();
+        if (Player != null && MeshInicial != null)
+        {
+            // Obtener la posición de la superficie
+            Vector3 targetPosition = MeshInicial.transform.position;
+
+            // Asegurarse de que el jugador se teletransporta a la superficie
+            // con una altura adecuada (puedes ajustar el valor de "y" si es necesario)
+            Player.transform.position = new Vector3(targetPosition.x, targetPosition.y + 1, targetPosition.z);
+
+            // También podrías querer ajustar la rotación del jugador para que coincida con la de la superficie
+            Player.transform.rotation = MeshInicial.transform.rotation;
+
+            Debug.Log("Jugador teletransportado a la superficie: " + MeshInicial.name);
+        }
+    }
     void Start()
     {
+        // Selecciona una temática aleatoria y aplícala
+        SelectRandomTheme();
         CreateDungeon();
+    }
+
+    // Método para seleccionar una temática aleatoria
+    public void SelectRandomTheme()
+    {
+        int randomIndex = UnityEngine.Random.Range(0, themes.Count);
+        DungeonTheme selectedTheme = themes[randomIndex];
+       // selectedTheme.themeName = "Boliviana";
+        // Asignar el material y los objetos seleccionados a los campos
+        material = selectedTheme.floorMaterial;
+        wallVertical = selectedTheme.wallVerticalPrefab;
+        wallHorizontal = selectedTheme.wallHorizontalPrefab;
+        audioSource =GetComponent<AudioSource>();
+        if (audioSource != null && selectedTheme.audioSource!=null)
+        {
+            // Asignar el AudioClip al AudioSource
+            audioSource.clip = selectedTheme.audioSource;
+
+            // Reproducir el sonido automáticamente
+            audioSource.Play();
+        }
+
+        Debug.Log("Tema seleccionado: " + selectedTheme.themeName);
     }
 
     public void CreateDungeon()
@@ -110,7 +178,7 @@ public class DungeonCreator : MonoBehaviour
         dungeonFloor.GetComponent<MeshFilter>().mesh = mesh;
         dungeonFloor.GetComponent<MeshRenderer>().material = material;
         dungeonFloor.transform.parent = transform;
-        
+        dungeonMeshes.Add(dungeonFloor);
         /*MeshCollider meshCollider = dungeonFloor.AddComponent<MeshCollider>();
 
         // Asignar el mesh al MeshCollider
@@ -124,7 +192,7 @@ public class DungeonCreator : MonoBehaviour
         /*boxCollider.size = new Vector3(topRightCorner.x - bottomLeftCorner.x, 1, topRightCorner.y - bottomLeftCorner.y);
         boxCollider.center = new Vector3((bottomLeftCorner.x + topRightCorner.x) / 2, 0.5f, (bottomLeftCorner.y + topRightCorner.y) / 2);*/
         // Añadir objetos aleatorios al Mesh
-        AddRandomObjectsToMesh(dungeonFloor, bottomLeftCorner, topRightCorner);
+        AddRandomObjectsToMesh(ObjetosEscenario,dungeonFloor, bottomLeftCorner, topRightCorner);
         for (int row = (int)bottomLeftV.x; row < (int)bottomRightV.x; row++)
         {
             var wallPosition = new Vector3(row, 0, bottomLeftV.z);
@@ -146,8 +214,9 @@ public class DungeonCreator : MonoBehaviour
             AddWallPositionToList(wallPosition, possibleWallVerticalPosition, possibleDoorVerticalPosition);
         }
     }
-    private void AddRandomObjectsToMesh(GameObject meshObject, Vector2 bottomLeftCorner, Vector2 topRightCorner)
+    private void AddRandomObjectsToMesh(List<GameObject> ListaDeObjetosPalEscenario,GameObject meshObject, Vector2 bottomLeftCorner, Vector2 topRightCorner)
     {
+        int countObj= ListaDeObjetosPalEscenario.Count;
         int numberOfObjects = 30; // Define cuántos objetos quieres generar
         float minDistance = 3.5f; // Mínima distancia que debe haber entre objetos
 
@@ -174,13 +243,17 @@ public class DungeonCreator : MonoBehaviour
                 attempts++; // Incrementar el número de intentos
             }
 
-            if (canPlace)
-            {
-                // Instanciar un GameObject (puedes cambiar el prefab o objeto según lo que desees añadir)
-                GameObject randomObject = GameObject.CreatePrimitive(PrimitiveType.Cube); // Ejemplo: crea un cubo
-                randomObject.transform.position = randomPosition;
-                randomObject.transform.localScale = Vector3.one * UnityEngine.Random.Range(0.5f, 1.5f); // Escala aleatoria
-                randomObject.transform.parent = meshObject.transform; // Hacer que el objeto sea hijo del mesh
+            if(canPlace)
+{
+                // Instanciar un objeto aleatorio desde la lista
+                int randomObj = UnityEngine.Random.Range(0, countObj);
+                GameObject objInstance = Instantiate(ListaDeObjetosPalEscenario[randomObj], randomPosition, Quaternion.identity); // Instanciar el objeto
+
+                // Cambiar la escala del objeto
+                objInstance.transform.localScale = Vector3.one * UnityEngine.Random.Range(0.5f, 1.5f); // Escala aleatoria
+
+                // Hacer que el objeto sea hijo del mesh
+                objInstance.transform.parent = meshObject.transform; // Esto es correcto porque objInstance no es un prefab
             }
             else
             {
