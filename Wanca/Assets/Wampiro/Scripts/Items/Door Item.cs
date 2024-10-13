@@ -1,14 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using DoorScript;
 using UnityEngine;
 
-public class MeleeWeapon : MonoBehaviour
+public class DoorItem : Item
 {
-    public Vector3 initialPosition;
-    public Vector3 endPosition;
-    
-    public  float speed = 10f;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -19,5 +15,9 @@ public class MeleeWeapon : MonoBehaviour
     void Update()
     {
         
+    }
+    public override void Action(Transform player)
+    {
+        GetComponent<Door>().OpenDoor();
     }
 }
