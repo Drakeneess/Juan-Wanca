@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DoorScript;
 using UnityEngine;
 
 public class DoorItem : Item
@@ -14,5 +15,9 @@ public class DoorItem : Item
     void Update()
     {
         
+    }
+    public override void Action(Transform player)
+    {
+        GetComponent<Door>().OpenDoor();
     }
 }

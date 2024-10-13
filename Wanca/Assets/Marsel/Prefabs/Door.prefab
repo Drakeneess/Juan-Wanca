@@ -15,8 +15,7 @@ GameObject:
   - component: {fileID: 2902829420819806742}
   - component: {fileID: 7285287126537092231}
   - component: {fileID: 3494806203869987701}
-  - component: {fileID: 2957794833154485460}
-  - component: {fileID: 478310910834997553}
+  - component: {fileID: 5021821491718871836}
   m_Layer: 6
   m_Name: Door
   m_TagString: Untagged
@@ -238,19 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   celShadingMaterial: {fileID: 0}
   artificialLights: []
---- !u!114 &2957794833154485460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 910562035844778577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4f79f849af5b8f49b6b3d2ff0534c83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &478310910834997553
+--- !u!114 &5021821491718871836
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
