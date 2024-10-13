@@ -14,6 +14,7 @@ namespace DoorScript
         float DoorCloseAngle = 0.0f;
         public AudioSource asource;
         public AudioClip openDoor, closeDoor;
+        public DungeonCreator dungeonCreator;
 
         // Para la pantalla de carga
         public GameObject loadingScreen; // Referencia a la pantalla de carga en la UI
@@ -65,7 +66,7 @@ namespace DoorScript
             if (open && loadingScreen != null)
             {
                 StartCoroutine(ShowLoadingScreen());
-                DungeonCreator dungeonCreator = new DungeonCreator();
+                
                 dungeonCreator.SelectRandomTheme();
                 dungeonCreator.CreateDungeon();
                 dungeonCreator.TeleportToSurface();
