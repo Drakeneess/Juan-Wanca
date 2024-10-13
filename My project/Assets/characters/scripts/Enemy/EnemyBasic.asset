@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58c2e5b0f5cca9c4ab086a03cc6760b7, type: 3}
   m_Name: EnemyBasic
   m_EditorClassIdentifier: 
-  Health: 100
+  Health: 50
+  AttackDelay: 1
+  Damage: 5
+  AttackRadius: 1.5
+  IsRanged: 0
   AIUpdateInterval: 0.1
   Acceleration: 8
   AngularSpeed: 120

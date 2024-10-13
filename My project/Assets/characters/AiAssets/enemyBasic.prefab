@@ -338,12 +338,6 @@ MonoBehaviour:
   Agent: {fileID: 61157179869670672}
   EnemyScriptableObject: {fileID: 11400000, guid: fc61b086bbaa2cf4caa8dd210431c0b2, type: 2}
   Health: 10
-  head: {fileID: 6970043711615000938}
-  rodillaIzq: {fileID: 5065390049529132814}
-  rodillaDere: {fileID: 3317940030543636368}
-  explosionForce: 500
-  explosionRadius: 5
-  fadeDuration: 4
 --- !u!54 &4976873466541713315
 Rigidbody:
   m_ObjectHideFlags: 0

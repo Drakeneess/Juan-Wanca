@@ -15,11 +15,11 @@ public class RangedAttackRadius : AttackRange
     private RaycastHit Hit;
     private IDamageable targetDamageable;
     private Bullet bullet;
+    private bool canShoot = false; // Nuevo: bandera para indicar si puede disparar
 
     protected override void Awake()
     {
         base.Awake();
-
         BulletPool = ObjectPool.CreateInstance(BulletPrefab, Mathf.CeilToInt((1 / AttackDelay) * BulletPrefab.AutoDestroyTime));
     }
 
@@ -27,23 +27,27 @@ public class RangedAttackRadius : AttackRange
     {
         WaitForSeconds Wait = new WaitForSeconds(AttackDelay);
 
-        yield return Wait;
-
         while (Damageables.Count > 0)
         {
             for (int i = 0; i < Damageables.Count; i++)
             {
+                // Detectar si tiene línea de visión con el objetivo
                 if (HasLineOfSightTo(Damageables[i].GetTransform()))
                 {
                     targetDamageable = Damageables[i];
                     OnAttack?.Invoke(Damageables[i]);
-                    Agent.enabled = false;
+
+                    // Detener el agente si puede disparar
+                    Agent.isStopped = true;
+                    canShoot = true; // Puede disparar
                     break;
                 }
             }
 
-            if (targetDamageable != null)
+            // Si se puede disparar
+            if (canShoot && targetDamageable != null)
             {
+                // Obtener la bala del pool y disparar
                 PoolableObject poolableObject = BulletPool.GetObject();
                 if (poolableObject != null)
                 {
@@ -57,44 +61,47 @@ public class RangedAttackRadius : AttackRange
             }
             else
             {
-                Agent.enabled = true; // no target in line of sight, keep trying to get closer
+                // Si no se puede disparar, seguir moviéndose
+                Agent.isStopped = false;
             }
 
             yield return Wait;
 
+            // Si el objetivo se pierde o no tiene línea de visión, el agente sigue moviéndose
             if (targetDamageable == null || !HasLineOfSightTo(targetDamageable.GetTransform()))
             {
-                Agent.enabled = true;
+                canShoot = false; // Ya no puede disparar
+                Agent.isStopped = false;
             }
 
             Damageables.RemoveAll(DisabledDamageables);
         }
 
-        Agent.enabled = true;
+        // Reiniciar el agente al terminar el ataque
+        Agent.isStopped = false;
         AttackCoroutine = null;
     }
 
     private bool HasLineOfSightTo(Transform Target)
     {
-        if (Physics.SphereCast(transform.position + BulletSpawnOffset, SpherecastRadius, ((Target.position + BulletSpawnOffset) - (transform.position + BulletSpawnOffset)).normalized, out Hit, Collider.radius, Mask))
+        // Usar Raycast para verificar la línea de visión
+        if (Physics.Raycast(transform.position + BulletSpawnOffset, (Target.position - transform.position).normalized, out Hit, Collider.radius, Mask))
         {
             IDamageable damageable;
             if (Hit.collider.TryGetComponent<IDamageable>(out damageable))
             {
-                return damageable.GetTransform() == Target;
+                return damageable.GetTransform() == Target; // Solo si el objetivo es el mismo que queremos atacar
             }
         }
-
         return false;
     }
 
     protected override void OnTriggerExit(Collider other)
     {
         base.OnTriggerExit(other);
-
         if (AttackCoroutine == null)
         {
-            Agent.enabled = true;
+            Agent.isStopped = false;
         }
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.AI;
 [CreateAssetMenu(fileName = "Enemy Configuration", menuName = "ScriptableObject/Enemy Configuration")]
 public class EnemyBehaviurs : ScriptableObject
 {
-    // stats del enemigo
+    // Enemy Stats
     public int Health = 100;
     public float AttackDelay = 1f;
     public int Damage = 5;
@@ -18,7 +18,7 @@ public class EnemyBehaviurs : ScriptableObject
 
     public float Acceleration = 8;
     public float AngularSpeed = 120;
-    // -1 es todo
+    // -1 means everything
     public int AreaMask = -1;
     public int AvoidancePriority = 50;
     public float BaseOffset = 0;

@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AutoDestroyTime: 5
-  MoveSpeed: 2
+  MoveSpeed: 5
   Damage: 5
   Rigidbody: {fileID: 0}
 --- !u!136 &3400549148444222561

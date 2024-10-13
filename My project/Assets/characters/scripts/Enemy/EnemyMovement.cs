@@ -10,7 +10,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField]
     private Animator Animator;
     public float UpdateRate = 0.1f;
-    private NavMeshAgent Agent;
+    public NavMeshAgent Agent;
     private Coroutine FollowCoroutine;
 
     private const string IsWalking = "corre";

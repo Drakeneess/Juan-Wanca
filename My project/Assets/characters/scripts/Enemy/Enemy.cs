@@ -13,13 +13,6 @@ public class Enemy : PoolableObject, IDamageable
     public EnemyBehaviurs EnemyScriptableObject;
     public int Health = 100;
 
-    public GameObject head;
-    public GameObject rodillaIzq;
-    public GameObject rodillaDere;
-    public float explosionForce = 500f;
-    public float explosionRadius = 5f;
-    public float fadeDuration = 4f;
-
     private Coroutine LookCoroutine;
     private const string ATTACK_TRIGGER = "Attack";
 
@@ -64,6 +57,7 @@ public class Enemy : PoolableObject, IDamageable
     public override void OnDisable()
     {
         base.OnDisable();
+
         Agent.enabled = false;
     }
 
@@ -81,6 +75,7 @@ public class Enemy : PoolableObject, IDamageable
         Agent.stoppingDistance = EnemyScriptableObject.StoppingDistance;
 
         Movement.UpdateRate = EnemyScriptableObject.AIUpdateInterval;
+
         Health = EnemyScriptableObject.Health;
 
         (AttackRadius.Collider == null ? AttackRadius.GetComponent<SphereCollider>() : AttackRadius.Collider).radius = EnemyScriptableObject.AttackRadius;
@@ -88,59 +83,14 @@ public class Enemy : PoolableObject, IDamageable
         AttackRadius.Damage = EnemyScriptableObject.Damage;
     }
 
-    public void TakeDamage(int Damage)
+    public virtual void TakeDamage(int Damage)
     {
         Health -= Damage;
 
         if (Health <= 0)
         {
-            Die();
+            gameObject.SetActive(false);
         }
-    }
-
-    private void Die()
-    {
-        // Desacoplar las partes del cuerpo
-        head.transform.parent = null;
-        rodillaIzq.transform.parent = null;
-        rodillaDere.transform.parent = null;
-
-        // Añadir Rigidbody para las físicas de cada parte
-        Rigidbody headRb = head.AddComponent<Rigidbody>();
-        Rigidbody rodillaIzqRb = rodillaIzq.AddComponent<Rigidbody>();
-        Rigidbody rodillaDereRb = rodillaDere.AddComponent<Rigidbody>();
-
-        // Aplicar fuerza de explosión a cada parte del cuerpo
-        headRb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
-        rodillaIzqRb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
-        rodillaDereRb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
-
-        // Iniciar desvanecimiento y destrucción después de 4 segundos
-        StartCoroutine(FadeAndDestroy(head));
-        StartCoroutine(FadeAndDestroy(rodillaIzq));
-        StartCoroutine(FadeAndDestroy(rodillaDere));
-
-        // Finalmente, desactivar el enemigo
-        gameObject.SetActive(false);
-    }
-
-    private IEnumerator FadeAndDestroy(GameObject obj)
-    {
-        Renderer renderer = obj.GetComponent<Renderer>();
-        Color originalColor = renderer.material.color;
-        float elapsedTime = 0;
-
-        while (elapsedTime < fadeDuration)
-        {
-            elapsedTime += Time.deltaTime;
-            Color newColor = originalColor;
-            newColor.a = Mathf.Lerp(1, 0, elapsedTime / fadeDuration);
-            renderer.material.color = newColor;
-
-            yield return null;
-        }
-
-        Destroy(obj); // Destruye la parte del cuerpo después del desvanecimiento
     }
 
     public Transform GetTransform()

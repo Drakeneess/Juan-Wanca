@@ -15,7 +15,7 @@ C:/Users/jcusi/OneDrive/Documents/2024_INGETRUCO/Gamejam2024/Cuzzmincra/My proje
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-62516
+57491
 Successfully changed project path to: C:/Users/jcusi/OneDrive/Documents/2024_INGETRUCO/Gamejam2024/Cuzzmincra/My project
 C:/Users/jcusi/OneDrive/Documents/2024_INGETRUCO/Gamejam2024/Cuzzmincra/My project
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,16 +49,16 @@ C:/Users/jcusi/OneDrive/Documents/2024_INGETRUCO/Gamejam2024/Cuzzmincra/My proje
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [29548]  Target information:
+Player connection [29180]  Target information:
 
-Player connection [29548]  * "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 2101572107 [EditorId] 2101572107 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-K5MT0JAD) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [29180]  * "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 657735804 [EditorId] 657735804 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-K5MT0JAD) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [29548]  * "[IP] 10.0.14.181 [Port] 0 [Flags] 2 [Guid] 2101572107 [EditorId] 2101572107 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-K5MT0JAD) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [29180]  * "[IP] 192.168.0.6 [Port] 0 [Flags] 2 [Guid] 657735804 [EditorId] 657735804 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-K5MT0JAD) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [29548] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [29548] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [29180] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [29180] Host joined alternative multi-casting on [225.0.0.222:34997]...
 [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
-Refreshing native plugins compatible for Editor in 14.89 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 20.52 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.41f1 (0f988161febf)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.41f1/Editor/Data/Resources/UnitySubsystems
@@ -74,49 +74,49 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.41f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.41f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.41f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56944
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56888
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.41f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.41f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.41f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.027251 seconds.
-- Loaded All Assemblies, in  0.625 seconds
+Registered in 0.029733 seconds.
+- Loaded All Assemblies, in  0.662 seconds
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
 Android Extension - Scanning For ADB Devices 639 ms
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.211 seconds
-Domain Reload Profiling: 1830ms
-	BeginReloadAssembly (187ms)
+- Finished resetting the current domain, in  1.152 seconds
+Domain Reload Profiling: 1809ms
+	BeginReloadAssembly (189ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (56ms)
-	RebuildNativeTypeToScriptingClass (17ms)
-	initialDomainReloadingComplete (115ms)
-	LoadAllAssembliesAndSetupDomain (244ms)
-		LoadAssemblies (183ms)
+	RebuildCommonClasses (60ms)
+	RebuildNativeTypeToScriptingClass (20ms)
+	initialDomainReloadingComplete (123ms)
+	LoadAllAssembliesAndSetupDomain (264ms)
+		LoadAssemblies (185ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (238ms)
-			TypeCache.Refresh (237ms)
-				TypeCache.ScanAssembly (215ms)
+		AnalyzeDomain (260ms)
+			TypeCache.Refresh (258ms)
+				TypeCache.ScanAssembly (235ms)
 			ScanForSourceGeneratedMonoScriptInfo (1ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (1212ms)
+	FinalizeReload (1152ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1139ms)
+		SetupLoadedEditorAssemblies (1082ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (829ms)
-			SetLoadedEditorAssemblies (8ms)
+			InitializePlatformSupportModulesInManaged (817ms)
+			SetLoadedEditorAssemblies (5ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (3ms)
-			ProcessInitializeOnLoadAttributes (222ms)
-			ProcessInitializeOnLoadMethodAttributes (77ms)
+			ProcessInitializeOnLoadAttributes (186ms)
+			ProcessInitializeOnLoadMethodAttributes (71ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -125,7 +125,7 @@ Domain Reload Profiling: 1830ms
 Worker process is ready to serve import requests
 Caller must complete domain reload
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  1.066 seconds
+- Loaded All Assemblies, in  1.293 seconds
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
 Native extension for WebGL target not found
@@ -134,53 +134,53 @@ Package Manager log level set to [2]
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.347 seconds
-Domain Reload Profiling: 2405ms
-	BeginReloadAssembly (236ms)
+- Finished resetting the current domain, in  1.448 seconds
+Domain Reload Profiling: 2731ms
+	BeginReloadAssembly (280ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (8ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (30ms)
-	RebuildCommonClasses (55ms)
+		CreateAndSetChildDomain (32ms)
+	RebuildCommonClasses (58ms)
 	RebuildNativeTypeToScriptingClass (18ms)
 	initialDomainReloadingComplete (75ms)
-	LoadAllAssembliesAndSetupDomain (673ms)
-		LoadAssemblies (520ms)
+	LoadAllAssembliesAndSetupDomain (851ms)
+		LoadAssemblies (629ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (296ms)
-			TypeCache.Refresh (262ms)
-				TypeCache.ScanAssembly (237ms)
-			ScanForSourceGeneratedMonoScriptInfo (24ms)
-			ResolveRequiredComponents (8ms)
-	FinalizeReload (1348ms)
+		AnalyzeDomain (406ms)
+			TypeCache.Refresh (353ms)
+				TypeCache.ScanAssembly (318ms)
+			ScanForSourceGeneratedMonoScriptInfo (35ms)
+			ResolveRequiredComponents (16ms)
+	FinalizeReload (1448ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1122ms)
+		SetupLoadedEditorAssemblies (1210ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (50ms)
-			SetLoadedEditorAssemblies (9ms)
+			InitializePlatformSupportModulesInManaged (47ms)
+			SetLoadedEditorAssemblies (7ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (116ms)
-			ProcessInitializeOnLoadAttributes (896ms)
-			ProcessInitializeOnLoadMethodAttributes (32ms)
-			AfterProcessingInitializeOnLoad (20ms)
+			BeforeProcessingInitializeOnLoad (145ms)
+			ProcessInitializeOnLoadAttributes (902ms)
+			ProcessInitializeOnLoadMethodAttributes (90ms)
+			AfterProcessingInitializeOnLoad (19ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (13ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
-Refreshing native plugins compatible for Editor in 7.18 ms, found 3 plugins.
+		AwakeInstancesAfterBackupRestoration (10ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.11 seconds
+Refreshing native plugins compatible for Editor in 9.20 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3144 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 19 unused Assets / (54.6 KB). Loaded Objects now: 3613.
-Memory consumption went from 124.6 MB to 124.6 MB.
-Total: 4.708800 ms (FindLiveObjects: 0.307400 ms CreateObjectMapping: 0.271500 ms MarkObjects: 4.016700 ms  DeleteObjects: 0.111600 ms)
+Unloading 5058 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (0.8 MB). Loaded Objects now: 5518.
+Memory consumption went from 192.1 MB to 191.3 MB.
+Total: 5.575200 ms (FindLiveObjects: 0.490400 ms CreateObjectMapping: 0.538900 ms MarkObjects: 4.104900 ms  DeleteObjects: 0.439300 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
   custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
   custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
@@ -191,20 +191,296 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 160082.411729 seconds.
-  path: Assets/characters/enemyMelee/enemybasic.controller
-  artifactKey: Guid(716c5549fe360a648a1d08477836fc8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/characters/enemyMelee/enemybasic.controller using Guid(716c5549fe360a648a1d08477836fc8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
- -> (artifact id: 'e4e5e249a4008ab3832e6b332fcc2b62') in 0.021141 seconds
+  Time since last request: 221574.628614 seconds.
+  path: Assets/Scenes/chelo
+  artifactKey: Guid(7debf448d4ce5b046b53e93cb519c77e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/chelo using Guid(7debf448d4ce5b046b53e93cb519c77e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '98edce90603e39d8eed333ad291feb37') in 0.002779 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 18
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.987 seconds
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.598 seconds
+Domain Reload Profiling: 3574ms
+	BeginReloadAssembly (281ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (55ms)
+	RebuildCommonClasses (66ms)
+	RebuildNativeTypeToScriptingClass (22ms)
+	initialDomainReloadingComplete (67ms)
+	LoadAllAssembliesAndSetupDomain (540ms)
+		LoadAssemblies (645ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (65ms)
+			TypeCache.Refresh (16ms)
+				TypeCache.ScanAssembly (1ms)
+			ScanForSourceGeneratedMonoScriptInfo (30ms)
+			ResolveRequiredComponents (18ms)
+	FinalizeReload (2599ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1365ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (60ms)
+			SetLoadedEditorAssemblies (7ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (173ms)
+			ProcessInitializeOnLoadAttributes (1007ms)
+			ProcessInitializeOnLoadMethodAttributes (96ms)
+			AfterProcessingInitializeOnLoad (21ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (13ms)
+Refreshing native plugins compatible for Editor in 9.41 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5000 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 37 unused Assets / (1.4 MB). Loaded Objects now: 5535.
+Memory consumption went from 176.2 MB to 174.8 MB.
+Total: 7.376900 ms (FindLiveObjects: 1.067200 ms CreateObjectMapping: 0.687800 ms MarkObjects: 4.360600 ms  DeleteObjects: 1.259400 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/DungeonCreatorEditor.cs: 1d98419d05d1c1d3d91c68ceaf108737 -> 
+  custom:scripting/monoscript/fileName/DungeonCreator.cs: bc25f86caa217166889f22005ea5f468 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:scripting/monoscript/fileName/CorridorNode.cs: c7c97213d01249a0f6faa0b4f8c385e9 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/RoomNode.cs: 06ca0a178686682ab179a88010db023a -> 
+  custom:scripting/monoscript/fileName/StructureHelper.cs: 799ba81af343e8d17d6f513ea5f43c2c -> 
+  custom:scripting/monoscript/fileName/Door.cs: 76a534d5d2ac0dbfd6d73fd2d7f2b5ae -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/CameraOpenDoor.cs: 3e5174df6222edc4071a5aa3cfdab188 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/RoomGenerator.cs: b661e3dc1dc1af963fc5536926ffc679 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/CorridorsGenerator.cs: 5381cc0818e8a86e1fd6b5e8ac998843 -> 
+  custom:scripting/monoscript/fileName/Line.cs: fe4498754f4762b589d5dd556b007692 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/FPSController.cs: de4014cab0cec0d37608613dde7408fd -> 
+  custom:scripting/monoscript/fileName/BinarySpacePartitioner.cs: e5d05f0bc174d8a271461a4e445b0864 -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 63bf76ca84b0edda3d51a23152589c93 -> 52a49cf6fc85d668bf797e0d33bcd226
+  custom:scripting/monoscript/fileName/Node.cs: 4a91f575819247392100f69b84e534b7 -> 
+  custom:scripting/monoscript/fileName/DugeonGenerator.cs: b5cd9aec2041ae6c389466b992f3c065 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 88.856796 seconds.
+  path: Assets/Scenes/chelo/Juan-Wanca-Marselo/Wanca/Packages
+  artifactKey: Guid(68e30c7afdf9dc04a9ad066e7de24b31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/chelo/Juan-Wanca-Marselo/Wanca/Packages using Guid(68e30c7afdf9dc04a9ad066e7de24b31) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '60bf95264305863e4552981227792f3d') in 0.009569 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
 ========================================================================
 Received Import Request.
   Time since last request: 0.000034 seconds.
-  path: Assets/characters/AiAssets/enemyBasic.prefab
-  artifactKey: Guid(859b7510f4e9f7f49af72ee24257c00e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/characters/AiAssets/enemyBasic.prefab using Guid(859b7510f4e9f7f49af72ee24257c00e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
- -> (artifact id: 'e342741b5a1a481e99e8aa364ea8bd27') in 0.130757 seconds
+  path: Assets/Scenes/chelo/Juan-Wanca-Marselo/Wanca
+  artifactKey: Guid(7938ad774822c5441a881c363ce6ecef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/chelo/Juan-Wanca-Marselo/Wanca using Guid(7938ad774822c5441a881c363ce6ecef) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '6defc2cf4735d94f3e2c6ae5d96b2b7c') in 0.001065 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 209
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000083 seconds.
+  path: Assets/Scenes/chelo/Juan-Wanca-Marselo
+  artifactKey: Guid(c090e8cd8fd37344d9a4726181dd2f21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/chelo/Juan-Wanca-Marselo using Guid(c090e8cd8fd37344d9a4726181dd2f21) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '958fdac0d8d98a699bd993d12e4222d6') in 0.000758 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 1.291998 seconds.
+  path: Assets/Scenes/chelo/Juan-Wanca-Marselo/Wanca/ProjectSettings/ClusterInputManager.asset
+  artifactKey: Guid(5f98cccb26907f049a832470a145cdfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/chelo/Juan-Wanca-Marselo/Wanca/ProjectSettings/ClusterInputManager.asset using Guid(5f98cccb26907f049a832470a145cdfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'a9578c1da61107e0b675e82ec990ed27') in 0.001372 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.092593 seconds.
+  path: Assets/Scenes/chelo/Juan-Wanca-Marselo/Wanca/ProjectSettings/DynamicsManager.asset
+  artifactKey: Guid(ce8cb59c7ae7e5843878ce622d9de498) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/chelo/Juan-Wanca-Marselo/Wanca/ProjectSettings/DynamicsManager.asset using Guid(ce8cb59c7ae7e5843878ce622d9de498) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '07dfa6505f067c91bf6a7f36f665d7ed') in 0.001596 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.054389 seconds.
+  path: Assets/Scenes/chelo/Juan-Wanca-Marselo/Wanca/ProjectSettings/NavMeshAreas.asset
+  artifactKey: Guid(babf60b7fe65d2e44802f71ff76190f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/chelo/Juan-Wanca-Marselo/Wanca/ProjectSettings/NavMeshAreas.asset using Guid(babf60b7fe65d2e44802f71ff76190f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '387846ca334b87e4c1ef469569c92795') in 0.001627 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Scenes/chelo/Juan-Wanca-Marselo/Wanca/ProjectSettings/TagManager.asset
+  artifactKey: Guid(a70aa8514f832914bbbbb388e50839e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/chelo/Juan-Wanca-Marselo/Wanca/ProjectSettings/TagManager.asset using Guid(a70aa8514f832914bbbbb388e50839e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'f079578b9b2421455b60e1dadce4ec72') in 0.001538 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Scenes/chelo/Juan-Wanca-Marselo/Wanca/ProjectSettings/VersionControlSettings.asset
+  artifactKey: Guid(291830d340cba724c8c9357d73f71020) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/chelo/Juan-Wanca-Marselo/Wanca/ProjectSettings/VersionControlSettings.asset using Guid(291830d340cba724c8c9357d73f71020) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'b59a6789368873c3da11440d7e39ad4d') in 0.001385 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Scenes/chelo/Juan-Wanca-Marselo/Wanca/ProjectSettings/Physics2DSettings.asset
+  artifactKey: Guid(257345f6f9340824ca28144bba3e3a6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/chelo/Juan-Wanca-Marselo/Wanca/ProjectSettings/Physics2DSettings.asset using Guid(257345f6f9340824ca28144bba3e3a6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: 'ed430101f61865bd87daff7ab0616157') in 0.001691 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Scenes/chelo/Juan-Wanca-Marselo/Wanca/ProjectSettings/TimeManager.asset
+  artifactKey: Guid(c3e5d19c7d36eff4ca8ae6228337647e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/chelo/Juan-Wanca-Marselo/Wanca/ProjectSettings/TimeManager.asset using Guid(c3e5d19c7d36eff4ca8ae6228337647e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '6e1d165d48c631587e1087148dade21f') in 0.001642 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Scenes/chelo/Juan-Wanca-Marselo/Wanca/ProjectSettings/QualitySettings.asset
+  artifactKey: Guid(d7ea4e1efea75b944a264a186fc4564f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/chelo/Juan-Wanca-Marselo/Wanca/ProjectSettings/QualitySettings.asset using Guid(d7ea4e1efea75b944a264a186fc4564f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '0ed273bb033a739bde80ccf179cb16f4') in 0.001478 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Scenes/chelo/Juan-Wanca-Marselo/Wanca/ProjectSettings/VFXManager.asset
+  artifactKey: Guid(5138d1b800dc473478d9e683ebf05427) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/chelo/Juan-Wanca-Marselo/Wanca/ProjectSettings/VFXManager.asset using Guid(5138d1b800dc473478d9e683ebf05427) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '8b2fe83d3219452f9dd735d74f52dc8d') in 0.001125 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Scenes/chelo/Juan-Wanca-Marselo/Wanca/ProjectSettings/MemorySettings.asset
+  artifactKey: Guid(5c05133ffe832424381ba0d42c3bdee4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/chelo/Juan-Wanca-Marselo/Wanca/ProjectSettings/MemorySettings.asset using Guid(5c05133ffe832424381ba0d42c3bdee4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 12 workers.
+ -> (artifact id: '6badd51604b80f0518d9bf0618eed56c') in 0.001088 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.963 seconds
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.877 seconds
+Domain Reload Profiling: 3829ms
+	BeginReloadAssembly (258ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (49ms)
+	RebuildCommonClasses (71ms)
+	RebuildNativeTypeToScriptingClass (20ms)
+	initialDomainReloadingComplete (65ms)
+	LoadAllAssembliesAndSetupDomain (536ms)
+		LoadAssemblies (649ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (41ms)
+			TypeCache.Refresh (13ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (26ms)
+	FinalizeReload (2878ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1422ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (57ms)
+			SetLoadedEditorAssemblies (7ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (170ms)
+			ProcessInitializeOnLoadAttributes (1056ms)
+			ProcessInitializeOnLoadMethodAttributes (107ms)
+			AfterProcessingInitializeOnLoad (25ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (14ms)
+Refreshing native plugins compatible for Editor in 8.89 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5000 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 37 unused Assets / (1.4 MB). Loaded Objects now: 5538.
+Memory consumption went from 176.2 MB to 174.8 MB.
+Total: 6.580600 ms (FindLiveObjects: 0.658500 ms CreateObjectMapping: 0.621200 ms MarkObjects: 4.272300 ms  DeleteObjects: 1.026900 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/DungeonCreatorEditor.cs: 1d98419d05d1c1d3d91c68ceaf108737 -> 
+  custom:scripting/monoscript/fileName/DungeonCreator.cs: bc25f86caa217166889f22005ea5f468 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:scripting/monoscript/fileName/CorridorNode.cs: c7c97213d01249a0f6faa0b4f8c385e9 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/RoomNode.cs: 06ca0a178686682ab179a88010db023a -> 
+  custom:scripting/monoscript/fileName/StructureHelper.cs: 799ba81af343e8d17d6f513ea5f43c2c -> 
+  custom:scripting/monoscript/fileName/Door.cs: 76a534d5d2ac0dbfd6d73fd2d7f2b5ae -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/CameraOpenDoor.cs: 3e5174df6222edc4071a5aa3cfdab188 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/RoomGenerator.cs: b661e3dc1dc1af963fc5536926ffc679 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/CorridorsGenerator.cs: 5381cc0818e8a86e1fd6b5e8ac998843 -> 
+  custom:scripting/monoscript/fileName/Line.cs: fe4498754f4762b589d5dd556b007692 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/FPSController.cs: de4014cab0cec0d37608613dde7408fd -> 
+  custom:scripting/monoscript/fileName/BinarySpacePartitioner.cs: e5d05f0bc174d8a271461a4e445b0864 -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 63bf76ca84b0edda3d51a23152589c93 -> 52a49cf6fc85d668bf797e0d33bcd226
+  custom:scripting/monoscript/fileName/Node.cs: 4a91f575819247392100f69b84e534b7 -> 
+  custom:scripting/monoscript/fileName/DugeonGenerator.cs: b5cd9aec2041ae6c389466b992f3c065 -> 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: The I/O operation has been aborted because of either a thread exit or an application request.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
