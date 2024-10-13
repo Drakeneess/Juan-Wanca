@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class CharacterAnimations : MonoBehaviour
 {
@@ -17,11 +16,10 @@ public class CharacterAnimations : MonoBehaviour
     private float armRotationAngle = 45.0f;  // Grados que los brazos rotan al caminar
     private float legRotationAngle = 30.0f;  // Grados que las piernas rotan al caminar
     private float idleAmplitude = 5.0f;      // Amplitud de oscilación en idle
-    private Vector2 directionMove=Vector2.zero;
+    private Vector2 directionMove = Vector2.zero;
     private bool animate = true;
 
-    private Rigidbody rb;           // Referencia al Rigidbody del cubo
-    
+    private Rigidbody rb;  // Referencia al Rigidbody del personaje
 
     void Start()
     {
@@ -49,21 +47,23 @@ public class CharacterAnimations : MonoBehaviour
         }
         else
         {
-            Iddle();
+            Idle();
         }
     }
 
-    
-    public void Walk(){
+    public void Walk()
+    {
         float armRotation = Mathf.Sin(Time.time * animationSpeed) * armRotationAngle;
         leftArm.localRotation = Quaternion.Euler(armRotation, 0, 0);
         rightArm.localRotation = Quaternion.Euler(-90, 0, 0);  // Invertido para balancear
 
         float legRotation = Mathf.Sin(Time.time * animationSpeed) * legRotationAngle;
-        leftLeg.localRotation = Quaternion.Euler(legRotation*directionMove.x, 0, legRotation*directionMove.y);
-        rightLeg.localRotation = Quaternion.Euler(-legRotation*directionMove.x, 0, -legRotation*directionMove.y);
+        leftLeg.localRotation = Quaternion.Euler(legRotation * directionMove.x, 0, legRotation * directionMove.y);
+        rightLeg.localRotation = Quaternion.Euler(-legRotation * directionMove.x, 0, -legRotation * directionMove.y);
     }
-    public void Iddle(){
+
+    public void Idle()
+    {
         float idleArmRotation = Mathf.Sin(Time.time * idleSpeed) * idleAmplitude;
         float idleLegRotation = Mathf.Sin(Time.time * idleSpeed) * (idleAmplitude / 2);
 
@@ -73,15 +73,15 @@ public class CharacterAnimations : MonoBehaviour
         leftLeg.localRotation = Quaternion.Euler(idleLegRotation, 0, 0);
         rightLeg.localRotation = Quaternion.Euler(-idleLegRotation, 0, 0);
     }
-    public void SetDirection(Vector2 newDirection){
-        directionMove.x=newDirection.y!=0? 1 : 0;
-        directionMove.y=newDirection.x!=0? 1 : 0;
+
+    public void SetDirection(Vector2 newDirection)
+    {
+        directionMove.x = newDirection.y != 0 ? 1 : 0;
+        directionMove.y = newDirection.x != 0 ? 1 : 0;
     }
 
-    public void SetAnimate(bool newAnimate){
+    public void SetAnimate(bool newAnimate)
+    {
         animate = newAnimate;
-    }
-    public void Punch(){
-        
     }
 }

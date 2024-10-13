@@ -6,12 +6,12 @@ public class AttackController : MonoBehaviour
 {
     public Transform weaponHolder;
     private Weapon weapon;
-    private CharacterAnimations characterAnimations;
+    private Punch punch;
 
     // Start is called before the first frame update
     void Start()
     {
-        characterAnimations=GetComponent<CharacterAnimations>();
+        punch=GetComponent<Punch>();
     }
 
     // Update is called once per frame
@@ -24,7 +24,7 @@ public class AttackController : MonoBehaviour
             weapon.Attack();
         }
         else{
-            characterAnimations.Punch();
+            punch.PunchAttack();
         }
     }
     public void SetWeapon(Weapon newWeapon){

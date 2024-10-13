@@ -10,9 +10,15 @@ public class TargetPointer : MonoBehaviour
     public Transform trigs;
 
     private bool isTargetOnView = false;
-    private bool targetInPosition=false;
+    private bool targetInPosition = false;
     private Vector3 enlargedScale;  // Ajusta este valor para agrandar el puntero.
     private Vector3 normalScale;
+
+    private void Awake() 
+    {
+        // Establecer la rotación inicial
+        transform.rotation = Quaternion.Euler(90f, 0f, 0f);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -26,14 +32,21 @@ public class TargetPointer : MonoBehaviour
     {
         if (!isTargetOnView)
         {
-            if(!targetInPosition){
+            // Restablecer la rotación a 90 grados si no hay objetivo en vista
+            if (!targetInPosition)
+            {
                 transform.rotation = Quaternion.Euler(90f, 0f, 0f);
-
-                targetInPosition=true;
+                targetInPosition = true;
             }
+
             // Rotación normal cuando no está apuntando a un objetivo
-            transform.Rotate(Vector3.up,Space.World);
+            transform.Rotate(Vector3.up, normalRotationSpeed * Time.deltaTime, Space.World);
             transform.localScale = normalScale;  // Restaurar el tamaño normal si no hay objetivo.
+        }
+        else
+        {
+            // Lógica adicional si hay un objetivo en vista (puedes agregar rotación adicional aquí)
+            // Por ejemplo: transformar la rotación para mirar hacia el objetivo
         }
     }
 
@@ -42,7 +55,6 @@ public class TargetPointer : MonoBehaviour
     {
         // Ajustar la posición en el suelo (y=0)
         transform.position = new Vector3(newPosition.x, 0, newPosition.z);
-
         isTargetOnView = false;
     }
 
@@ -50,10 +62,10 @@ public class TargetPointer : MonoBehaviour
     public void SetTarget(Vector3 targetPosition, Transform targetObjective)
     {
         isTargetOnView = true;
-        targetInPosition=false;
+        targetInPosition = false;
         transform.position = targetPosition;
 
-        // Hacer que el puntero mire al origen (personaje)
+        // Hacer que el puntero mire al objetivo
         transform.LookAt(targetObjective);
 
         // Aumentar el tamaño del puntero cuando apunta a un objetivo

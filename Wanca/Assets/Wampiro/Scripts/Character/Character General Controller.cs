@@ -91,5 +91,7 @@ public class CharacterGeneralController : MonoBehaviour
     public void SetDamageableStatus(bool state){
         damageable = state;
     }
-
+    public float GetHealth(){
+        return actualHealth;
+    }
 }

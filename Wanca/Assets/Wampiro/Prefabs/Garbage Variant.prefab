@@ -48,6 +48,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3396025737870532246, guid: 95455a241f58cb9458dd98b2cdac0065, type: 3}
+      propertyPath: sprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396025737870532246, guid: 95455a241f58cb9458dd98b2cdac0065, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: ff8074565a7adb14c909e0803a1e1aa0, type: 3}
+    - target: {fileID: 3396025737870532246, guid: 95455a241f58cb9458dd98b2cdac0065, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: bf626432c2d934c4c90d13ff82587d15, type: 3}
     - target: {fileID: 3420670479520291126, guid: 95455a241f58cb9458dd98b2cdac0065, type: 3}
       propertyPath: m_Name
       value: Garbage Variant

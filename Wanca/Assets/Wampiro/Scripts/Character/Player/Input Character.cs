@@ -121,4 +121,6 @@ public class InputCharacter : MonoBehaviour
             }
         }
     }
+    public string  CurrentScheme { get { return currentScheme; } }
+
 }

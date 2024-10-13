@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float speed = 10f;
-    public float damage = 1f;
-    public float lifeTime = 2f;
+    public float speed = 10f; // Velocidad del proyectil
+    public float damage = 1f; // Daño que inflige el proyectil
+    public float lifeTime = 2f; // Tiempo de vida del proyectil
     public LayerMask enemyLayer; // Capa que determina qué objetos son enemigos
 
     private float lifeTimer;
@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour
     void Update()
     {
         // Mover el proyectil hacia adelante
-        transform.Translate(Vector3.forward * speed * Time.deltaTime,Space.Self);
+        transform.Translate(Vector3.forward * speed * Time.deltaTime, Space.Self);
 
         // Destruir el proyectil después de que su tiempo de vida haya expirado
         lifeTimer -= Time.deltaTime;
@@ -32,9 +32,9 @@ public class Projectile : MonoBehaviour
     }
 
     // Detectar colisión con enemigos
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
-        // Comprobamos si el objeto con el que colisionamos está en la capa de enemigos y tiene la etiqueta "Enemy"
+        // Comprobar si el objeto con el que colisionamos está en la capa de enemigos
         if ((enemyLayer.value & (1 << other.gameObject.layer)) != 0 && other.gameObject.CompareTag("Enemy"))
         {
             // Obtener el controlador del enemigo y aplicar daño
@@ -45,7 +45,7 @@ public class Projectile : MonoBehaviour
             }
 
             // Destruir el proyectil tras la colisión
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }

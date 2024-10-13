@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8120887245111990949}
   - component: {fileID: 3185383644187169590}
   - component: {fileID: -8693861737298831785}
-  - component: {fileID: -713597960787254308}
   - component: {fileID: 8488851689014556988}
+  - component: {fileID: 3664879548355218316}
   m_Layer: 0
   m_Name: Pebbel
   m_TagString: Untagged
@@ -100,32 +100,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   damage: 0.2
-  lifeTime: 0.2
+  lifeTime: 0.9
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
---- !u!64 &-713597960787254308
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7412978612590894848}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -686698415247882614, guid: cfeaf186048000a47af32be47b317ee7, type: 3}
+    m_Bits: 72
 --- !u!54 &8488851689014556988
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -153,3 +131,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &3664879548355218316
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7412978612590894848}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.19588251, y: 0.19480947, z: 0.19999999}
+  m_Center: {x: -0.000000007450581, y: 0.0010760315, z: 0}

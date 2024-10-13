@@ -19,12 +19,14 @@ public class Tackle : MonoBehaviour
     private Rigidbody rb;           // Referencia al Rigidbody del cubo
     private CharacterAnimations animations;
     private PlayerGeneralController generalController;
+    public Fist fist;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         animations = GetComponent<CharacterAnimations>();
         generalController = GetComponent<PlayerGeneralController>();
+        fist.punchDamage=2;
 
         leftArm = animations.leftArm;
         rightArm = animations.rightArm;
@@ -44,6 +46,7 @@ public class Tackle : MonoBehaviour
     {
         isTackling = true;
         generalController.SetStates(!isTackling);
+        fist.EnableCollider(true);
 
         // *** Paso 1: Detener cualquier movimiento previo ***
         rb.velocity = Vector3.zero;  // Detener la velocidad en todas las direcciones
@@ -83,6 +86,7 @@ public class Tackle : MonoBehaviour
 
         // *** Paso 4: Girar a 180° después de la tacleada ***
         yield return StartCoroutine(PostTackleRotation());
+        fist.EnableCollider(false);
 
         // *** Paso 5: Animación de levantarse ***
         yield return StartCoroutine(RecoverFromTackle(originalRotation));
